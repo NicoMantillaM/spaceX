@@ -9,6 +9,7 @@
 }
 
 body {
+    font-family: "Roboto-Regular";
     background: linear-gradient(var(--color--one), var(--color--one--rgba));
 }
 
@@ -315,7 +316,7 @@ body {
 
 
 .footer {
-    /* background: coral; */
+ 
     grid-area: section__footer;
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
@@ -326,16 +327,17 @@ body {
     grid-area: footer__menu;
     background: var(--color--one);
     display: flex;
+    gap: 3vh;
     justify-content: space-between;
     align-items: center;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
 }
 .footer ul::after{
     content: "";
     position: relative;
-    margin-top: 10px;
-    right: -36px;
+    margin-top:34px;
+    right: -43px;
     bottom: 0;
     width: 0;
     height: 0;
@@ -346,8 +348,8 @@ body {
 .footer ul::before{
     content: "";
     position: relative;
-    margin-top: 10px;
-    left: -36px;
+    margin-top: 34px;
+    left: -43px;
     bottom: 0;
     width: 0;
     height: 0;
@@ -377,6 +379,8 @@ body {
 }
 
 .information__item {
+   
+
     /* background: violet; */
     overflow-y: auto;
     height: 75vh;
@@ -467,4 +471,16 @@ progress[value]::-webkit-progress-value {
 progress[value]::-moz-progress-bar {
     border-radius: 10em;
     background: var(--color);
+}
+
+.information__buttom {
+    display: flex;
+    gap: 2vh;
+   color: red;
+
+}
+.paginacion {
+    padding: 1vh 1.5vh;
+    border: 1px solid azure;
+    border-radius: 100%;
 }

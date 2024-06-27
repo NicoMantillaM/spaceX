@@ -1,17 +1,27 @@
-import { getAllRockets } from "./modules/rockets.js"
-import { rocket  } from "./components/rocketin.js"
+import { 
+    load,
+    paginationRockets
+} from "./components/pagination.js";
 
-console.log(getAllRockets());
 
-let header__title = document.querySelector("#header__title");
+let footerSelect = async(e, id)=>{
+    e.preventDefault();
+    await load();
+    let li = document.querySelectorAll(".footer ul li")
+    for(let val of li){
+        let [a] = val.children
+        a.classList.remove('select');
+    }
+    let [a] = id.children
+    a.classList.add('select');   
+}
 
-addEventListener("DOMContentLoaded", async e =>{
-    let info = await getAllRockets();
-    console.log(info);
-    info.forEach(element => {
-        console.log(element);
-        info = element;
-    });
-    header__title.innerHTML = await (rocket(info))
+let rocket = document.querySelector("#rocket")
+rocket.addEventListener("click", async(e)=>{
+    await footerSelect(e, rocket)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationRockets())
+} )
 
-})
+rocket.click();
