@@ -9,8 +9,11 @@
 }
 
 body {
-    font-family: "Roboto-Regular";
-    background: linear-gradient(var(--color--one), var(--color--one--rgba));
+    background-image: url("../storage/img/icons/galaxy.webp");
+    background-size: 100% 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
 *::-webkit-scrollbar {
