@@ -5,6 +5,9 @@ import {
 
 import { 
     informationRockets,
+    informationLaunchCostRocket,
+    firstFlight,
+    informationWebRocket
 } from "./information.js";
 
 import { 
@@ -16,6 +19,9 @@ import {
     nameRockets,
     nameCapsules
 } from "./title.js";
+
+
+
 
 export const load = async()=>{
 
@@ -36,11 +42,12 @@ export const load = async()=>{
 
 export const clear = async()=>{
 
+    let header__title = document.querySelector("#header__title");
+    header__title.innerHTML = ``;
+
     let description__item = document.querySelector("#description__item");
     description__item.innerHTML = ``;
 
-    let header__title = document.querySelector("#header__title");
-    header__title.innerHTML = ``;
 
 }
 
@@ -57,11 +64,15 @@ const getRocketsId = async(e)=>{
     await clear();
 
     await informationRockets(Rocket.country, Rocket.description)
+    await informationLaunchCostRocket(Rocket.cost_per_launch)
+    await firstFlight(Rocket.first_flight)
+    await informationWebRocket(Rocket.wikipedia)
     await nameRockets(Rocket.name)
 }
 
 export const paginationRockets = async()=>{
-    let rockets = await getAllRockets();
+    let rockets = await getAllRockets()
+    ;
     let div = document.createElement("div");
     div.classList.add("buttom__paginacion")
   
