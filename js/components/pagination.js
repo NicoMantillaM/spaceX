@@ -7,7 +7,8 @@ import {
     informationRockets,
     informationLaunchCostRocket,
     firstFlight,
-    informationWebRocket
+    informationWebRocket,
+    informationCapsules
 } from "./information.js";
 
 import { 
@@ -21,7 +22,7 @@ import {
 } from "./title.js";
 
 
-
+//CARGA
 
 export const load = async()=>{
 
@@ -40,6 +41,8 @@ export const load = async()=>{
     `;
 }
 
+//LIMPIAR
+
 export const clear = async()=>{
 
     let header__title = document.querySelector("#header__title");
@@ -50,6 +53,8 @@ export const clear = async()=>{
 
 
 }
+
+//ROCKETS
 
 const getRocketsId = async(e)=>{
     e.preventDefault();
@@ -100,7 +105,7 @@ export const paginationRockets = async()=>{
 }
 
 
-
+//CAPSULAS
 
 
 const getCapsuleId = async(e)=>{
@@ -112,10 +117,11 @@ const getCapsuleId = async(e)=>{
     }
     e.target.classList.add('activo');
     
-    let capsule = await getAllCapsulesId(e.target.id);
+    let Capsule = await getAllCapsulesId(e.target.id);
     await clear();
 
-    await nameCapsules(capsule.serial)
+    await nameCapsules(Capsule.serial)
+    await informationCapsules(Capsule.last_update)
 }
 
 

@@ -4,16 +4,30 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
     font-family: "Roboto-Regular";
 }
 
 body {
-    background-image: url("../storage/img/icons/galaxy.webp");
-    background-size: 100% 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
-    position: relative;
+}
+
+.video-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Estilos para el video de fondo */
+#video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre todo el contenedor */
+    z-index: -1; /* Coloca el video detrás de todo el contenido */
 }
 
 *::-webkit-scrollbar {
@@ -163,6 +177,7 @@ body {
 /*  */
 .section__information__container {
     /* background: #d9ff00; */
+    height: 20px;
     grid-area: section__main;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -324,6 +339,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
     grid-template-areas: ". footer__menu .";
+    margin-top: -20px;
 }
 
 .footer ul {

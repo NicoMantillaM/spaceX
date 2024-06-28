@@ -1,9 +1,12 @@
-export const informationRockets = async(country, description)=>{
+//informacion  d rockets
+
+export const informationRockets = async(country, description,)=>{
     let div = document.createElement('div');
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/rocket.svg")
+     img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
     divFirst.append(img);
     
     let divLast = document.createElement('div');
@@ -17,15 +20,7 @@ export const informationRockets = async(country, description)=>{
     let description__item = document.querySelector("#description__item")
     description__item.append(div)
 
-    // <div class="description__container">
-    //     <div>
-    //         <img src="http://www.example.com">
-    //     </div>
-    //     <div>
-    //         <h3>Title</h3>
-    //         <small>Lorem ipsum dolor sit amet...</small>
-    //     </div>
-    // </div>
+    
 }
 
 export const informationLaunchCostRocket = async(cost_per_launch) =>{
@@ -33,7 +28,8 @@ export const informationLaunchCostRocket = async(cost_per_launch) =>{
     divCost.classList.add('description__container')
     let divLeft = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/rocket.svg" )
+     img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
     divLeft.append(img);
 
     let divRigth = document.createElement('div')
@@ -54,7 +50,8 @@ export const firstFlight = async (first_flight)=>{
     divFlight.classList.add('description__container')
     let divLeft = document.createElement('div')
     let img = document.createElement('img')
-    img.setAttribute("src", "storage/img/icons/rocket.svg" )
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
     divLeft.append(img)
 
     let divRight = document.createElement('div');
@@ -75,7 +72,8 @@ export const informationWebRocket = async(wikipedia)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/mech.svg")
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
     divFirst.append(img);
     
     let divLast = document.createElement('div');
@@ -92,3 +90,43 @@ export const informationWebRocket = async(wikipedia)=>{
     description__item.append(div)
 }
 
+//informacion  d capsules
+
+
+export const informationCapsules = async(last_update)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+     img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Last update"
+    let small = document.createElement('small');
+    small.textContent = last_update
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+
+    
+}
+
+
+// {
+//     "reuse_count": 0,
+//     "water_landings": 1,
+//     "land_landings": 0,
+//     "last_update": "Hanging in atrium at SpaceX HQ in Hawthorne ",
+//     "launches": [
+//     "5eb87cdeffd86e000604b330"
+//     ],
+//     "serial": "C101",
+//     "status": "retired",
+//     "type": "Dragon 1.0",
+//     "id": "5e9e2c5bf35918ed873b2664"
+// },
