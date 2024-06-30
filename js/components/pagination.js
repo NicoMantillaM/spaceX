@@ -30,6 +30,9 @@ import {
     nameCapsules
 } from "./title.js";
 
+import {
+    imageRockets
+} from "./card.js";
 
 //CARGA
 
@@ -47,6 +50,11 @@ export const load = async()=>{
         <div class="load"></div>
         <div class="load"></div>
         <div class="load"></div>
+    `;
+
+    let section__image = document.querySelector("#section__image")
+    section__image.innerHTML = `
+        <div class="load" style="height: 350px"></div>
     `;
 
     let information__2 = document.querySelector("#information__2");
@@ -68,6 +76,10 @@ export const clear = async()=>{
 
     let description__item = document.querySelector("#description__item");
     description__item.innerHTML = ``;
+
+    let section__image = document.querySelector("#section__image")
+    section__image.innerHTML = ``;
+
 
     let information__2 = document.querySelector("#information__2");
     information__2.innerHTML = ``;
@@ -100,6 +112,8 @@ const getRocketsId = async(e)=>{
     await progressDiameterRocket(Rocket)
     await progressSecondStageDiameterRocket(Rocket)
     await progressSecondStageHeightRocket(Rocket)
+
+    await imageRockets(Rocket.flickr_images);
 }
 export const paginationRockets = async()=>{
     let rockets = await getAllRockets();
