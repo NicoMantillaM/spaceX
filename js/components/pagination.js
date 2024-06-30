@@ -12,6 +12,15 @@ import {
 } from "./information.js";
 
 import { 
+    progressRocketWeight,
+    progressPayloadWeights, 
+    progressHeightRocket, 
+    progressDiameterRocket,
+    progressSecondStageDiameterRocket,
+    progressSecondStageHeightRocket,
+} from "../components/progressBar.js";
+
+import { 
     getAllCapsules, 
     getAllCapsulesId
 } from "../modules/capsules.js";
@@ -39,6 +48,15 @@ export const load = async()=>{
         <div class="load"></div>
         <div class="load"></div>
     `;
+
+    let information__2 = document.querySelector("#information__2");
+    information__2.innerHTML = `
+        <div class="load"></div>
+        <div class="load"></div>
+        <div class="load"></div>
+        <div class="load"></div>
+        <div class="load"></div>
+    `;
 }
 
 //LIMPIAR
@@ -51,6 +69,8 @@ export const clear = async()=>{
     let description__item = document.querySelector("#description__item");
     description__item.innerHTML = ``;
 
+    let information__2 = document.querySelector("#information__2");
+    information__2.innerHTML = ``;
 
 }
 
@@ -73,14 +93,19 @@ const getRocketsId = async(e)=>{
     await firstFlight(Rocket.first_flight)
     await informationWebRocket(Rocket.wikipedia)
     await nameRockets(Rocket.name)
-}
 
+    await progressRocketWeight(Rocket)
+    await progressPayloadWeights(Rocket)
+    await progressHeightRocket(Rocket)
+    await progressDiameterRocket(Rocket)
+    await progressSecondStageDiameterRocket(Rocket)
+    await progressSecondStageHeightRocket(Rocket)
+}
 export const paginationRockets = async()=>{
-    let rockets = await getAllRockets()
-    ;
+    let rockets = await getAllRockets();
     let div = document.createElement("div");
     div.classList.add("buttom__paginacion")
-  
+
     rockets.forEach((val,id) => {
         let a = document.createElement("a");
         a.setAttribute("href","#");
@@ -111,6 +136,12 @@ export const paginationRockets = async()=>{
 const getCapsuleId = async(e)=>{
     e.preventDefault();
     // console.log(e.target);
+
+    if (e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationCapsules(Number(e.target.dataset.page)))
+    }
     let a = e.target.parentElement.children;
     for(let val of a){
         val.classList.remove('activo');
@@ -122,6 +153,7 @@ const getCapsuleId = async(e)=>{
 
     await nameCapsules(Capsule.serial)
     await informationCapsules(Capsule.last_update)
+
 }
 
 
