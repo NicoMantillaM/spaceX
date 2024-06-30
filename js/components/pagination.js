@@ -34,6 +34,11 @@ import {
     imageRockets
 } from "./card.js";
 
+import {
+    informRocketEngineThrustSeaLevel,
+    informRocketEngineThrustVacuum
+} from "./inform.js";
+
 //CARGA
 
 export const load = async()=>{
@@ -55,6 +60,11 @@ export const load = async()=>{
     let section__image = document.querySelector("#section__image")
     section__image.innerHTML = `
         <div class="load" style="height: 350px"></div>
+    `;
+
+    let section__information__1 = document.querySelector("#section__information__1")
+    section__information__1.innerHTML = `
+        <div class="load" style="height: 150px;"></div>
     `;
 
     let information__2 = document.querySelector("#information__2");
@@ -80,6 +90,8 @@ export const clear = async()=>{
     let section__image = document.querySelector("#section__image")
     section__image.innerHTML = ``;
 
+    let section__information__1 = document.querySelector("#section__information__1")
+    section__information__1.innerHTML = ``;
 
     let information__2 = document.querySelector("#information__2");
     information__2.innerHTML = ``;
@@ -114,6 +126,9 @@ const getRocketsId = async(e)=>{
     await progressSecondStageHeightRocket(Rocket)
 
     await imageRockets(Rocket.flickr_images);
+
+    await informRocketEngineThrustSeaLevel(Rocket.engines.thrust_sea_level)
+    await informRocketEngineThrustVacuum(Rocket.engines.thrust_vacuum)
 }
 export const paginationRockets = async()=>{
     let rockets = await getAllRockets();
