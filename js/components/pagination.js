@@ -35,7 +35,8 @@ import {
     informRocketEngineThrustVacuum
 } from "./inform.js";
 import { 
-    imageRockets 
+    imageRockets,
+    imageCapsules
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -232,10 +233,11 @@ const getCapsulesId = async(e)=>{
     await launchesInformationDateLocalCapsules()
     await launchesInformationDateUnixCapsules()
     await launchesInformationReadCapsules()
+    await imageCapsules()
 }
 
 export const paginationCapsules = async(page=1, limit=4)=>{  
-     
+
     let {docs, pagingCounter, totalPages, nextPage} = await getAllCapsules(page, limit)
 
     let div = document.createElement("div");
