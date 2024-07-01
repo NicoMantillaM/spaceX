@@ -2,14 +2,24 @@ import {
     getAllRockets, 
     getAllRocketsId
 } from "../modules/rockets.js";
+
 import { 
-    nameRockets 
+    getAllCapsules, 
+    getAllCapsulesId
+} from "../modules/capsules.js";
+
+import { 
+    nameRockets,
+    nameCapsules
 } from "./title.js";
 import { 
     informationRockets,
     informationLaunchCostRocket,
     firstFlight,
-    informationWebRocket
+    informationWebRocket,
+    informationDescriptionRocket,
+    informationIdRocket,
+    informationCapsules
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -30,10 +40,6 @@ import {
     progressSecondStageDiameterRocket,
     progressSecondStageHeightRocket,
 } from "../components/progressBar.js";
-///
-import { 
-    getAllCapsules 
-} from "../modules/capsules.js";
 
 
 export const load = async()=>{
@@ -54,6 +60,16 @@ export const load = async()=>{
     let section__information__1 = document.querySelector("#section__information__1")
     section__information__1.innerHTML = `
         <div class="load" style="height: 150px;"></div>
+    `;
+
+    let section__information__2 = document.querySelector("#section__information__2")
+    section__information__2.innerHTML = `
+    <div class="load" style="height: 150px;"></div>
+    `;
+
+    let section__information__3 = document.querySelector("#section__information__3")
+    section__information__3.innerHTML = `
+    <div class="load" style="height: 150px;"></div>
     `;
 
     let information__table__1 = document.querySelector("#information__table__1")
@@ -91,6 +107,12 @@ export const clear = async()=>{
     let section__information__1 = document.querySelector("#section__information__1")
     section__information__1.innerHTML = ``;
 
+    let section__information__2 = document.querySelector("#section__information__2")
+    section__information__2.innerHTML = ``;
+
+    let section__information__3 = document.querySelector("#section__information__3")
+    section__information__3.innerHTML = ``;
+
     let information__table__1 = document.querySelector("#information__table__1")
     information__table__1.innerHTML = ``;
 
@@ -123,6 +145,8 @@ const getRocketsId = async(e)=>{
     await informationLaunchCostRocket(Rocket.cost_per_launch)
     await firstFlight(Rocket.first_flight)
     await informationWebRocket(Rocket.wikipedia)
+    await informationDescriptionRocket(Rocket.description)
+    await informationIdRocket(Rocket.id)
 
     await informRocketEngineThrustSeaLevel(Rocket.engines.thrust_sea_level);
     await informRocketEngineThrustVacuum(Rocket.engines.thrust_vacuum);
@@ -153,7 +177,7 @@ export const paginationRockets = async()=>{
     });
     
     let [a1,a2,a3,a4] = div.children
-    a3.click();
+    a1.click();
     // <div class="buttom__paginacion">
     //     <a href="#">&laquo;</a> 
     //     <a href="#" class="activo">1</a>
@@ -180,10 +204,11 @@ const getCapsulesId = async(e)=>{
     e.target.classList.add('activo');
     
 
-    // let Rocket = await getAllRocketsId(e.target.id);
-    // console.log(Rocket);
+    let Capsule = await getAllCapsulesId(e.target.id);
+    await clear();
 
-    // await informationRockets(Rocket.country, Rocket.description)
+    await nameCapsules(Capsule.serial)
+    await informationCapsules(Capsule.last_update)
     
 }
 
@@ -219,13 +244,5 @@ export const paginationCapsules = async(page=1, limit=4)=>{
     console.log(div);
     let [back, a1,a2,a3,a4, next] = div.children
     a1.click();
-    // <div class="buttom__paginacion">
-    //     <a href="#">&laquo;</a> 
-    //     <a href="#" class="activo">1</a>
-    //     <a href="#">2</a>
-    //     <a href="#">3</a>
-    //     <a href="#">4</a>
-    //     <a href="#">&raquo;</a>
-    // </div>
     return div;
 }

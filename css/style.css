@@ -142,6 +142,27 @@ body {
     justify-content: space-evenly;
 }
 
+#section__information__2 {
+    display: flex;
+    flex-direction: column;
+    color: aquamarine;
+    width: 40vh;
+    margin-left: 6vh;
+    h3{
+        color:red
+    }
+} 
+#section__information__3{
+    display: flex;
+    flex-direction: column;
+    color: aquamarine;
+    width: 40vh;
+    margin-left: 6vh;
+    h3{
+        color:red
+    }
+} 
+
 .section__information__1>.carousel__item {
     /* flex: 1; */
     min-width: 24%;

@@ -1,19 +1,19 @@
 //informacion  d rockets
 
-export const informationRockets = async(country, description,)=>{
+export const informationRockets = async(country)=>{
     let div = document.createElement('div');
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-     img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("src", "storage/img/icons/mario.gif")
     img.setAttribute("width", "55px"); 
     divFirst.append(img);
     
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
-    h3.textContent = country
+    h3.textContent = "Country"
     let small = document.createElement('small');
-    small.textContent = description
+    small.textContent = country
     divLast.append(h3, small);
     div.append(divFirst, divLast);
 
@@ -88,6 +88,26 @@ export const informationWebRocket = async(wikipedia)=>{
     div.append(divFirst, divLast);
     let description__item = document.querySelector("#description__item")
     description__item.append(div)
+}
+
+export const informationDescriptionRocket = async(description)=>{
+    let section__information__2 = document.querySelector("#section__information__2");
+    section__information__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Description rocket"
+    let small = document.createElement('small');
+    small.textContent = description
+    section__information__2.append(h3, small)
+}
+
+export const informationIdRocket = async(id)=>{
+    let section__information__3 = document.querySelector("#section__information__3");
+    section__information__3.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "ID rocket"
+    let small = document.createElement('small');
+    small.textContent = id
+    section__information__3.append(h3, small)
 }
 
 //informacion  d capsules
