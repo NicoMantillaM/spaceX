@@ -19,11 +19,16 @@ import {
     informationWebRocket,
     informationDescriptionRocket,
     informationIdRocket,
-    informationCapsules
+    informationIdCapsule,
+    informationStatusCapsules,
+    informationTypeCapsules,
+    informationLastUpdateCapsules
 } from "./information.js";
 import { 
     tableRocketColum1, 
-    tableRocketColum2
+    tableRocketColum2,
+    tableCapsuleColum1,
+    tableCapsuleColum2
 } from "./tables.js";
 import { 
     informRocketEngineThrustSeaLevel, 
@@ -39,6 +44,12 @@ import {
     progressDiameterRocket,
     progressSecondStageDiameterRocket,
     progressSecondStageHeightRocket,
+    launchesInformationCapsules,
+    launchesInformationNameCapsules,
+    launchesInformationDateCapsules,
+    launchesInformationDateLocalCapsules,
+    launchesInformationDateUnixCapsules,
+    launchesInformationReadCapsules
 } from "../components/progressBar.js";
 
 
@@ -118,7 +129,6 @@ export const clear = async()=>{
 
     let section__image = document.querySelector("#section__image")
     section__image.innerHTML = ``;
-
 
     let information__table__2 = document.querySelector("#information__table__2")
     information__table__2.innerHTML = ``;
@@ -208,8 +218,20 @@ const getCapsulesId = async(e)=>{
     await clear();
 
     await nameCapsules(Capsule.serial)
-    await informationCapsules(Capsule.last_update)
-    
+    await informationIdCapsule(Capsule.id)
+    await informationStatusCapsules(Capsule.status)
+    await informationTypeCapsules(Capsule.type)
+    await informationLastUpdateCapsules(Capsule.last_update)
+
+    await tableCapsuleColum1(Capsule)
+    await tableCapsuleColum2(Capsule)
+
+    await launchesInformationCapsules()
+    await launchesInformationNameCapsules()
+    await launchesInformationDateCapsules()
+    await launchesInformationDateLocalCapsules()
+    await launchesInformationDateUnixCapsules()
+    await launchesInformationReadCapsules()
 }
 
 export const paginationCapsules = async(page=1, limit=4)=>{  

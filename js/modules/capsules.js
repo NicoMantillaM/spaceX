@@ -22,3 +22,27 @@ export const getAllCapsulesId = async (id)=>{
     let data = await res.json();
     return data;
 }
+
+export const getAllCapsuleLaunches = async() => {
+    let config = {
+    headers: {
+        "Content-Type": "application/json"
+    },
+    method: "POST",
+    body: JSON.stringify({
+        "query": {
+        "launches": [
+            "5eb87cdeffd86e000604b330"
+        ]
+        },
+        "options": {
+        "populate": [
+            {"path": "launches",}
+        ]
+        }
+    })
+    }
+    let res = await fetch("https://api.spacexdata.com/v4/capsules/query", config);
+    let { docs: [{ launches }] } = await res.json();
+    return launches;
+}

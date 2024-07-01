@@ -143,3 +143,64 @@ export const tableRocketColum2 = async (Rocket)=>{
         
     // </div>
 }
+
+export const tableCapsuleColum1 = async (Capsule)=>{
+
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Capsule Information "
+    let hr = document.createElement("hr");
+    information__table__1.append(h3, hr)
+
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+    // 
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "Type Capsule"
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${Capsule.type}`
+    div1.append(span1, strong1)
+
+    // 
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "Reuse Count"
+    let strong2 = document.createElement("strong");
+    strong2.textContent = `${Capsule.reuse_count}`
+    div2.append(span2, strong2)
+    
+
+    div.append( div1, div2,)
+    information__table__1.append(div)
+}
+export const tableCapsuleColum2 = async (Capsule)=>{
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Landings information"
+    let hr = document.createElement("hr");
+    information__table__2.append(h3, hr)
+
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+    // 
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "Land Landings"
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${Capsule.land_landings}`
+    div1.append(span1, strong1)
+
+    // 
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "Water Landings"
+    let strong2 = document.createElement("strong");
+    strong2.textContent =  `${Capsule.water_landings}`
+    div2.append(span2, strong2)
+
+    div.append( div1, div2)
+    information__table__2.append(div)
+}

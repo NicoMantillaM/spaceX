@@ -7,6 +7,10 @@ import {
     getRocketSecondStageCompositeFairingHeightTotal
 } from "../modules/rockets.js";
 
+import {
+    getAllCapsuleLaunches
+} from "../modules/capsules.js"
+
 export const progressRocketWeight = async(Rockets)=>{
     let {kg} = await getRocketMassTotal();
     let conterDiv = [];
@@ -21,7 +25,6 @@ export const progressRocketWeight = async(Rockets)=>{
         ProgressFist.max = kg
         ProgressFist.value = `${val.mass.kg}`;
         ProgressFist.textContent = `${val.mass.kg}%`;
-    
     
         let divLast = document.createElement("div");
         let spanLast = document.createElement("span");
@@ -38,16 +41,8 @@ export const progressRocketWeight = async(Rockets)=>{
     });
     let information__2 = document.querySelector("#information__2");
     information__2.append(...conterDiv)
-    // <div class="information__container">
-    //     <div>
-    //         <label>Totle :</label>
-    //         <progress max="100" value="70">70%</progress>
-    //     </div>
-    //     <div>
-    //         <span>0 kg <br> 0 lb</span>
-    //     </div>
-    // </div>
 }
+
 export const progressPayloadWeights = async(Rockets)=>{
     let {kg} = await getRocketPayloadWeightsTotal();
     let conterDiv = [];
@@ -252,4 +247,166 @@ export const progressSecondStageHeightRocket = async(Rockets)=>{
     //         <span>0 kg <br> 0 lb</span>
     //     </div>
     // </div>
+}
+
+export const launchesInformationCapsules = async() => {
+    let launches = await getAllCapsuleLaunches();
+    let conterDiv = [];
+
+    launches.forEach(launch => {
+    let divInformationContainer = document.createElement("div");
+    divInformationContainer.classList.add("information__container")
+
+    let divFirst = document.createElement("div");
+    let h3 = document.createElement("h3");
+    h3.textContent = `Launches:`;
+
+    let p = document.createElement("p");
+    p.textContent = `Flight Number:`;
+
+    let divLast = document.createElement("div");
+    let spanLast = document.createElement("span");
+    spanLast.innerHTML = `${launch.flight_number}`
+
+        divFirst.append(h3)
+        divFirst.append(p)
+        divLast.append(spanLast)
+        divInformationContainer.append(divFirst)
+        divInformationContainer.append(divLast)
+        conterDiv.push(divInformationContainer)
+    });
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+}
+
+export const launchesInformationNameCapsules = async() => {
+    let launches = await getAllCapsuleLaunches();
+    let conterDiv = [];
+
+    launches.forEach(launch => {
+    let divInformationContainer = document.createElement("div");
+    divInformationContainer.classList.add("information__container")
+
+    let divFirst = document.createElement("div");
+    let p = document.createElement("p");
+    p.textContent = `Name:`;
+
+    let divLast = document.createElement("div");
+    let spanLast = document.createElement("span");
+    spanLast.innerHTML = `${launch.name}`
+
+        divFirst.append(p)
+        divLast.append(spanLast)
+        divInformationContainer.append(divFirst)
+        divInformationContainer.append(divLast)
+        conterDiv.push(divInformationContainer)
+    });
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+}
+
+export const launchesInformationDateCapsules = async() => {
+    let launches = await getAllCapsuleLaunches();
+    let conterDiv = [];
+
+    launches.forEach(launch => {
+    let divInformationContainer = document.createElement("div");
+    divInformationContainer.classList.add("information__container")
+
+    let divFirst = document.createElement("div");
+    let p = document.createElement("p");
+    p.textContent = `Date Utc:`;
+
+    let divLast = document.createElement("div");
+    let spanLast = document.createElement("span");
+    spanLast.innerHTML = `${launch.date_utc}`
+
+        divFirst.append(p)
+        divLast.append(spanLast)
+        divInformationContainer.append(divFirst)
+        divInformationContainer.append(divLast)
+        conterDiv.push(divInformationContainer)
+    });
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+}
+
+export const launchesInformationDateLocalCapsules = async() => {
+    let launches = await getAllCapsuleLaunches();
+    let conterDiv = [];
+
+    launches.forEach(launch => {
+    let divInformationContainer = document.createElement("div");
+    divInformationContainer.classList.add("information__container")
+
+    let divFirst = document.createElement("div");
+    let p = document.createElement("p");
+    p.textContent = `Date Local:`;
+
+    let divLast = document.createElement("div");
+    let spanLast = document.createElement("span");
+    spanLast.innerHTML = `${launch.date_local}`
+
+        divFirst.append(p)
+        divLast.append(spanLast)
+        divInformationContainer.append(divFirst)
+        divInformationContainer.append(divLast)
+        conterDiv.push(divInformationContainer)
+    });
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+}
+export const launchesInformationDateUnixCapsules = async() => {
+    let launches = await getAllCapsuleLaunches();
+    let conterDiv = [];
+
+    launches.forEach(launch => {
+    let divInformationContainer = document.createElement("div");
+    divInformationContainer.classList.add("information__container")
+
+    let divFirst = document.createElement("div");
+    let p = document.createElement("p");
+    p.textContent = `Date Unix:`;
+
+    let divLast = document.createElement("div");
+    let spanLast = document.createElement("span");
+    spanLast.innerHTML = `${launch.date_unix}`
+
+        divFirst.append(p)
+        divLast.append(spanLast)
+        divInformationContainer.append(divFirst)
+        divInformationContainer.append(divLast)
+        conterDiv.push(divInformationContainer)
+    });
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+}
+export const launchesInformationReadCapsules = async() => {
+    let launches = await getAllCapsuleLaunches();
+    let conterDiv = [];
+
+    launches.forEach(launch => {
+    let divInformationContainer = document.createElement("div");
+    divInformationContainer.classList.add("information__container")
+
+    let divFirst = document.createElement("div");
+    let p = document.createElement("p");
+    p.textContent = `Read More:`;
+
+    let divLast = document.createElement("div");
+    let a = document.createElement("a");
+    a.href = launch.links.wikipedia;
+    a.target = "_blank";
+    a.classList.add("btn");
+    a.textContent = "Wikipedia";
+
+    divFirst.append(p)
+    divLast.append(a)
+    divInformationContainer.append(divFirst)
+    divInformationContainer.append(divLast)
+    conterDiv.push(divInformationContainer)
+    });
+
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
 }

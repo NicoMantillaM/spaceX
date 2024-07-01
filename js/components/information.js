@@ -19,8 +19,6 @@ export const informationRockets = async(country)=>{
 
     let description__item = document.querySelector("#description__item")
     description__item.append(div)
-
-    
 }
 
 export const informationLaunchCostRocket = async(cost_per_launch) =>{
@@ -78,7 +76,7 @@ export const informationWebRocket = async(wikipedia)=>{
     
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
-    h3.textContent = "Read more about the coete"
+    h3.textContent = "Read more"
     
     let a = document.createElement('a');
     a.setAttribute("href", wikipedia)
@@ -113,12 +111,33 @@ export const informationIdRocket = async(id)=>{
 //informacion  d capsules
 
 
-export const informationCapsules = async(last_update)=>{
+export const informationTypeCapsules = async(type)=>{
     let divLast = document.createElement('div');
     divLast.classList.add('description__container')
     let divLeft = document.createElement('div');
     let img = document.createElement('img');
-     img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Type Capsule"
+    let small = document.createElement('small');
+    small.textContent = type
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+
+export const informationLastUpdateCapsules = async(last_update)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
     img.setAttribute("width", "55px"); 
     divLeft.append(img);
     
@@ -132,21 +151,36 @@ export const informationCapsules = async(last_update)=>{
 
     let description__item = document.querySelector("#description__item")
     description__item.append(divLast)
-
-    
 }
 
+export const informationStatusCapsules = async(status)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Status Capsule"
+    let small = document.createElement('small');
+    small.textContent = status
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
 
-// {
-//     "reuse_count": 0,
-//     "water_landings": 1,
-//     "land_landings": 0,
-//     "last_update": "Hanging in atrium at SpaceX HQ in Hawthorne ",
-//     "launches": [
-//     "5eb87cdeffd86e000604b330"
-//     ],
-//     "serial": "C101",
-//     "status": "retired",
-//     "type": "Dragon 1.0",
-//     "id": "5e9e2c5bf35918ed873b2664"
-// },
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+
+export const informationIdCapsule = async(id)=>{
+    let section__information__3 = document.querySelector("#section__information__3");
+    section__information__3.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "ID Capsule"
+    let small = document.createElement('small');
+    small.textContent = id
+    section__information__3.append(h3, small)
+}
+
