@@ -1,7 +1,8 @@
 import { 
     load,
     paginationRockets,
-    paginationCapsules
+    paginationCapsules,
+    paginationCompany
 } from "./components/pagination.js";
 
 
@@ -38,7 +39,7 @@ company.addEventListener("click", async(e)=>{
     await footerSelect(e, company)
     let paginacion = document.querySelector("#paginacion");
     paginacion.innerHTML = ""
-    paginacion.append(await paginationCapsules())
+    paginacion.append(await paginationCompany())
 } )
 
 

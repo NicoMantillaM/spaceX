@@ -184,3 +184,150 @@ export const informationIdCapsule = async(id)=>{
     section__information__3.append(h3, small)
 }
 
+// infomacion d company
+
+export const summaryCompany = async(summary)=>{
+    let section__information__2 = document.querySelector("#section__information__2");
+    section__information__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Summary of the company:"
+    let small = document.createElement('small');
+    small.textContent = summary
+    section__information__2.append(h3, small)
+}
+
+export const informationIdCompany = async(id)=>{
+    let section__information__3 = document.querySelector("#section__information__3");
+    section__information__3.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "ID Company"
+    let small = document.createElement('small');
+    small.textContent = id
+    section__information__3.append(h3, small)
+}
+
+export const foundedCompany = async(founded)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Founded: "
+    let small = document.createElement('small');
+    small.textContent = founded
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(div)
+}
+export const valuationCompany = async(valuation)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Valuation: "
+    let small = document.createElement('small');
+    small.textContent = valuation
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(div)
+}
+
+export const companyFounder = async(founder)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Company Founder: "
+    let small = document.createElement('small');
+    small.textContent = founder
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(div)
+}
+
+export const employeesCompany = async(employees)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Employees: "
+    let small = document.createElement('small');
+    small.textContent = employees
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(div)
+}
+
+
+export const headquartersCityCompany = async(city)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "City: "
+    let small = document.createElement('small');
+    small.textContent = city
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(div)
+}
+
+export const headquarterStateCompany = async(state)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "State: "
+    let small = document.createElement('small');
+    small.textContent = state
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(div)
+}

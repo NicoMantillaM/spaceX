@@ -9,8 +9,13 @@ import {
 } from "../modules/capsules.js";
 
 import { 
+    getAllCompany, 
+} from "../modules/company.js";
+
+import { 
     nameRockets,
-    nameCapsules
+    nameCapsules,
+    nameCompany
 } from "./title.js";
 import { 
     informationRockets,
@@ -22,7 +27,15 @@ import {
     informationIdCapsule,
     informationStatusCapsules,
     informationTypeCapsules,
-    informationLastUpdateCapsules
+    informationLastUpdateCapsules,
+    foundedCompany,
+    valuationCompany,
+    informationIdCompany,
+    companyFounder,
+    summaryCompany,
+    employeesCompany,
+    headquartersCityCompany,
+    headquarterStateCompany
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -50,9 +63,10 @@ import {
     launchesInformationDateCapsules,
     launchesInformationDateLocalCapsules,
     launchesInformationDateUnixCapsules,
-    launchesInformationReadCapsules
+    launchesInformationReadCapsules,
 } from "../components/progressBar.js";
 
+// LOAD
 
 export const load = async()=>{
     let header__title = document.querySelector("#header__title");
@@ -109,6 +123,9 @@ export const load = async()=>{
         <div class="load"></div>
     `;
 }
+
+// CLEAR
+
 export const clear = async()=>{
     let header__title = document.querySelector("#header__title");
     header__title.innerHTML = ``;
@@ -138,6 +155,8 @@ export const clear = async()=>{
     information__2.innerHTML = ``;
 
 }
+
+// ROCKETS
 
 const getRocketsId = async(e)=>{
     e.preventDefault();
@@ -200,6 +219,9 @@ export const paginationRockets = async()=>{
     
     return div;
 }
+
+// CAPSULES
+
 
 const getCapsulesId = async(e)=>{
     e.preventDefault();
@@ -270,3 +292,21 @@ export const paginationCapsules = async(page=1, limit=4)=>{
     a1.click();
     return div;
 }
+
+// COMPANY
+
+export const paginationCompany = async()=>{
+    let Company = await getAllCompany();
+    await clear();
+    
+    await nameCompany(Company.name)
+    await foundedCompany(Company.founded)
+    await valuationCompany(Company.valuation)
+    await informationIdCompany(Company.id)
+    await companyFounder(Company.founder)
+    await summaryCompany(Company.summary)
+    await employeesCompany(Company.employees)
+    await headquartersCityCompany(Company.headquarters.city)
+    await headquarterStateCompany(Company.headquarters.state)
+}
+

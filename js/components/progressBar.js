@@ -11,6 +11,7 @@ import {
     getAllCapsuleLaunches
 } from "../modules/capsules.js"
 
+
 export const progressRocketWeight = async(Rockets)=>{
     let {kg} = await getRocketMassTotal();
     let conterDiv = [];
@@ -410,3 +411,6 @@ export const launchesInformationReadCapsules = async() => {
     let information__2 = document.querySelector("#information__2");
     information__2.append(...conterDiv)
 }
+
+// informacion de company
+
