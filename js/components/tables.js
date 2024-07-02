@@ -297,3 +297,77 @@ export const tableCompanyColum2 = async (Company)=>{
     div.append( div1, div2, div3)
     information__table__2.append(div)
 }
+
+
+// Tablas para cores
+
+export const tableCoresColum1 = async (Cores)=>{
+
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Lading Information "
+    let hr = document.createElement("hr");
+    information__table__1.append(h3, hr)
+
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+    // 
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "Reuse Count"
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${Cores.reuse_count}`
+    div1.append(span1, strong1)
+
+    // 
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "Attempts"
+    let strong2 = document.createElement("strong");
+    strong2.textContent = `${Cores.rtls_attempts}`
+    div2.append(span2, strong2)
+    
+     // 
+    let div3 = document.createElement("div");
+    let span3 = document.createElement("span");
+    span3.textContent = "Landings"
+    let strong3 = document.createElement("strong");
+    strong3.textContent = `${Cores.rtls_landings}`
+    div3.append(span3, strong3)
+       
+
+    div.append( div1, div2, div3)
+    information__table__1.append(div)
+}
+
+export const tableCoresColum2 = async (Cores)=>{
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Landings information"
+    let hr = document.createElement("hr");
+    information__table__2.append(h3, hr)
+
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+    // 
+        let div1 = document.createElement("div");
+        let span1 = document.createElement("span");
+        span1.textContent = "Asds_attempts"
+        let strong1 = document.createElement("strong");
+        strong1.textContent = `${Cores.asds_attempts}`
+        div1.append(span1, strong1)
+
+        // 
+        let div2 = document.createElement("div");
+        let span2 = document.createElement("span");
+        span2.textContent = "Asds_attempts"
+        let strong2 = document.createElement("strong");
+        strong2.textContent =  `${Cores.asds_attempts}`
+        div2.append(span2, strong2)
+
+
+    div.append( div1, div2)
+    information__table__2.append(div)
+}

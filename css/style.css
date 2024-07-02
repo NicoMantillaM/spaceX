@@ -272,8 +272,9 @@ body {
     /* background: orange; */
     grid-area: colum__2;
     display: flex;
-    overflow-x: auto;
     align-items: center;
+    width: 300px;
+    height: 20vh;
 }
 
 .section__image>.carousel__item {
@@ -284,10 +285,11 @@ body {
 }
 
 .section__image>.carousel__item img {
-    width: 305px;
+    width: 205px;
     height: 190px;
     border-radius: 10px;
     object-fit: cover;
+    background-size: cover;
     box-shadow: 0px 0px 10px var(--color--one);
 }
 

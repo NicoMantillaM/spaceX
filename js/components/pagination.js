@@ -57,7 +57,9 @@ import {
     tableCapsuleColum1,
     tableCapsuleColum2,
     tableCompanyColum1,
-    tableCompanyColum2
+    tableCompanyColum2,
+    tableCoresColum1,
+    tableCoresColum2
 } from "./tables.js";
 import { 
     informRocketEngineThrustSeaLevel, 
@@ -372,6 +374,8 @@ const getCoresId = async(e)=>{
     await launchesInformationDateCores()
     await launchesInformationDateLocalCores()
     await launchesInformationDateUnixCores()
+    await tableCoresColum1(Cores)
+    await tableCoresColum2(Cores)
 
 }
 

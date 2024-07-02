@@ -33,13 +33,10 @@ export const imageCapsules = async() => {
     launches.forEach(launch => {
     let div = document.createElement("div");
     div.classList.add("carousel__item")
-    let img1 = document.createElement("img");
-    img1.setAttribute("src", launch.links.patch.small)
-    let img2 = document.createElement("img");
-    img2.setAttribute("src", launch.links.patch.large)
-    img1.setAttribute("referrerpolicy", "no-referrer")
-    img2.setAttribute("referrerpolicy", "no-referrer")
-    div.append(img1, img2)
+    let img = document.createElement("img");
+    img.setAttribute("src", launch.links.patch.small)
+    img.setAttribute("referrerpolicy", "no-referrer")
+    div.append(img)
     divs.push(div);
     });
     section__image.append(...divs)
@@ -69,13 +66,10 @@ export const imageCores = async() => {
     launches.forEach(launch => {
     let div = document.createElement("div");
     div.classList.add("carousel__item")
-    let img1 = document.createElement("img");
-    img1.setAttribute("src", launch.links.patch.small)
-    let img2 = document.createElement("img");
-    img2.setAttribute("src", launch.links.patch.large)
-    img1.setAttribute("referrerpolicy", "no-referrer")
-    img2.setAttribute("referrerpolicy", "no-referrer")
-    div.append(img1, img2)
+    let img = document.createElement("img");
+    img.setAttribute("src", launch.links.patch.small)
+    img.setAttribute("referrerpolicy", "no-referrer")
+    div.append(img)
     divs.push(div);
     });
     section__image.append(...divs)
