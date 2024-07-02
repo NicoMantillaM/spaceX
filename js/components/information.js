@@ -1,3 +1,7 @@
+import {
+    getAllCrewLaunches
+} from "../modules/crew.js"
+
 //informacion  d rockets
 
 export const informationRockets = async(country)=>{
@@ -478,4 +482,85 @@ export const informationIdCores = async(id)=>{
 
     let description__item = document.querySelector("#description__item")
     description__item.append(divLast)
+}
+
+
+
+// infomacion d crew
+
+export const informationAgencyCrew = async(agency)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Agency"
+    let small = document.createElement('small');
+    small.textContent = agency
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+export const informationStatusCrew = async(status)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Status"
+    let small = document.createElement('small');
+    small.textContent = status
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+export const informationIdCrew = async(id)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Id Crew"
+    let small = document.createElement('small');
+    small.textContent = id
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+
+
+export const linksWikipediaCrew = async(wikipedia) => {
+    let section__information__2 = document.querySelector("#section__information__2");
+    section__information__2.innerHTML = "";
+
+    let h3 = document.createElement("h3");
+    h3.textContent = `Read More about this intertwined:`;
+    let a = document.createElement("a");
+    a.href = wikipedia;
+    a.target = "_blank";
+    a.classList.add("btn");
+    a.textContent = "wikipedia";
+
+    section__information__2.append(h3, a);
 }

@@ -13,6 +13,13 @@ import {
 } from "../modules/company.js";
 
 import { 
+    getAllCrew, 
+    getAllCrewId,
+
+} from "../modules/crew.js";
+
+
+import { 
     getAllCores, 
     getAllCoresId
 } from "../modules/cores.js";
@@ -22,7 +29,8 @@ import {
     nameRockets,
     nameCapsules,
     nameCompany,
-    nameCores
+    nameCores,
+    nameCrew
 } from "./title.js";
 import { 
     informationRockets,
@@ -50,6 +58,10 @@ import {
     informationLastUpdateCores,
     informationStatusCores,
     informationIdCores,
+    informationAgencyCrew,
+    informationStatusCrew,
+    informationIdCrew,
+    linksWikipediaCrew,
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -69,7 +81,8 @@ import {
     imageRockets,
     imageCapsules,
     imageCompany,
-    imageCores
+    imageCores,
+    imageCrew
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -88,7 +101,13 @@ import {
     launchesInformationNameCores,
     launchesInformationDateCores,
     launchesInformationDateLocalCores,
-    launchesInformationDateUnixCores
+    launchesInformationDateUnixCores,
+    launchesInformationCrew,
+    launchesInformationNameCrew,
+    launchesInformationDateLocalCrew,
+    launchesInformationDateUnixCrew,
+    launchesInformationReadCrew,
+    informationReadMoreCrew
 } from "../components/progressBar.js";
 
 // LOAD
@@ -407,6 +426,76 @@ export const paginationCores = async(page=1, limit=4)=>{
     end.innerHTML = "&raquo;";
     end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
     end.addEventListener("click", getCoresId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+    return div;
+}
+
+
+// CREW
+
+const getCrewId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationCrew(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+
+    let Crew = await getAllCrewId(e.target.id);
+    await clear();
+
+    await nameCrew(Crew.name) 
+    await imageCrew(Crew.image)
+    await informationAgencyCrew(Crew.agency)
+    await informationStatusCrew(Crew.status)
+    await informationIdCrew(Crew.id)
+    await linksWikipediaCrew(Crew.wikipedia)
+
+    await launchesInformationCrew()
+    await launchesInformationNameCrew()
+    await launchesInformationDateLocalCrew()
+    await launchesInformationDateUnixCrew()
+    await launchesInformationReadCrew()
+    await informationReadMoreCrew()
+}
+
+
+export const paginationCrew = async(page=1, limit=4)=>{  
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllCrew(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getCrewId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getCrewId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getCrewId)
     div.appendChild(end);
     console.log(div);
     let [back, a1,a2,a3,a4, next] = div.children
