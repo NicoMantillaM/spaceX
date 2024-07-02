@@ -55,7 +55,8 @@ import {
 } from "./inform.js";
 import { 
     imageRockets,
-    imageCapsules
+    imageCapsules,
+    imageCompany
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -321,5 +322,7 @@ export const paginationCompany = async()=>{
 
     await tableCompanyColum1(Company)
     await tableCompanyColum2(Company)
+
+    await imageCompany()
 }
 
