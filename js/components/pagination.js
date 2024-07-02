@@ -62,6 +62,9 @@ import {
     informationStatusCrew,
     informationIdCrew,
     linksWikipediaCrew,
+    launchesInformationReadCrew,
+    launchesInformationWebcastCrew,
+    launchesInformationArticleCrew
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -462,7 +465,9 @@ const getCrewId = async(e)=>{
     await launchesInformationNameCrew()
     await launchesInformationDateLocalCrew()
     await launchesInformationDateUnixCrew()
-
+    await launchesInformationReadCrew()
+    await launchesInformationWebcastCrew()
+    await launchesInformationArticleCrew()
 }
 
 

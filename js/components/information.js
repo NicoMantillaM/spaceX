@@ -564,3 +564,94 @@ export const linksWikipediaCrew = async(wikipedia) => {
 
     section__information__2.append(h3, a);
 }
+
+
+export const launchesInformationReadCrew = async() => {
+    let launches = await getAllCrewLaunches();
+    let conterDiv = [];
+
+    launches.forEach(launch => {
+    let divInformationContainer = document.createElement("div");
+    divInformationContainer.classList.add("information__container")
+
+    let divFirst = document.createElement("div");
+    let h3 = document.createElement("h3");
+    h3.textContent = `Read More about crew`;
+
+    let divLast = document.createElement("div");
+    let a = document.createElement("a");
+    a.href = launch.links.wikipedia;
+    a.target = "_blank";
+    a.classList.add("btn");
+    a.textContent = "Wikipedia";
+
+    divFirst.append(h3)
+    divLast.append(a)
+    divInformationContainer.append(divFirst)
+    divInformationContainer.append(divLast)
+    conterDiv.push(divInformationContainer)
+    });
+
+    let section__information__3 = document.querySelector("#section__information__3");
+    section__information__3.append(...conterDiv)
+}
+
+
+export const launchesInformationWebcastCrew = async() => {
+    let launches = await getAllCrewLaunches();
+    let conterDiv = [];
+
+    launches.forEach(launch => {
+    let divInformationContainer = document.createElement("div");
+    divInformationContainer.classList.add("information__container")
+
+    let divFirst = document.createElement("div");
+    let h3 = document.createElement("h3");
+    h3.textContent = `Webcast`;
+
+    let divLast = document.createElement("div");
+    let a = document.createElement("a");
+    a.href = launch.links.webcast;
+    a.target = "_blank";
+    a.classList.add("btn");
+    a.textContent = "webcast";
+
+    divFirst.append(h3)
+    divLast.append(a)
+    divInformationContainer.append(divFirst)
+    divInformationContainer.append(divLast)
+    conterDiv.push(divInformationContainer)
+    });
+
+    let section__information__3 = document.querySelector("#section__information__3");
+    section__information__3.append(...conterDiv)
+}
+export const launchesInformationArticleCrew = async() => {
+    let launches = await getAllCrewLaunches();
+    let conterDiv = [];
+
+    launches.forEach(launch => {
+    let divInformationContainer = document.createElement("div");
+    divInformationContainer.classList.add("information__container")
+
+    let divFirst = document.createElement("div");
+    let h3 = document.createElement("h3");
+    h3.textContent = `Article`;
+
+    let divLast = document.createElement("div");
+    let a = document.createElement("a");
+    a.href = launch.links.article;
+    a.target = "_blank";
+    a.classList.add("btn");
+    a.textContent = "article";
+
+    divFirst.append(h3)
+    divLast.append(a)
+    divInformationContainer.append(divFirst)
+    divInformationContainer.append(divLast)
+    conterDiv.push(divInformationContainer)
+    });
+
+    let section__information__3 = document.querySelector("#section__information__3");
+    section__information__3.append(...conterDiv)
+}
