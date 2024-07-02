@@ -756,3 +756,62 @@ export const firstFlightDragon = async (first_flight)=>{
     let description__item = document.querySelector("#description__item")
     description__item.append(divFlight)
 }
+
+// export const informationHeightDragon = async(Dragons)=>{
+//     let section__information__3 = document.querySelector("#section__information__3");
+//     section__information__3.innerHTML = "";
+//     let h3 = document.createElement("h3");
+//     h3.textContent = "Height"
+
+//     let div1 = document.createElement('div')
+//     let p = document.createElement('p')
+//     p.textContent =" Meters"
+//     let small = document.createElement('small');
+//     small.textContent = Dragons.height_w_trunk.meters
+//     div1.append(p,small)
+
+//     let p2 = document.createElement('p')
+//     p2.textContent ="Feet"
+//     let small2 = document.createElement('small');
+//     small2.textContent = Dragons.height_w_trunk.feet
+//     div1.append(p2,small2)
+
+//     let p3 = document.createElement('p')
+//     p3.textContent =" Meters"
+//     let small3 = document.createElement('small');
+//     small3.textContent = Dragons.diameter.meters
+//     div1.append(p,small)
+
+//     let p5 = document.createElement('p')
+//     p5.textContent ="Feet"
+//     let small5 = document.createElement('small');
+//     small5.textContent = Dragons.diameter.feet
+//     div1.append(p5,small5)
+
+
+//     section__information__3.append(h3,div1)
+// }
+
+// export const informationDiameterDragon = async(Dragons)=>{
+//     let section__information__3 = document.querySelector("#section__information__3");
+//     section__information__3.innerHTML = "";
+//     let h3 = document.createElement("h3");
+//     h3.textContent = "Diameter"
+
+//     let div1 = document.createElement('div')
+//     let p = document.createElement('p')
+//     p.textContent =" Meters"
+//     let small = document.createElement('small');
+//     small.textContent = Dragons.diameter.meters
+//     div1.append(p,small)
+
+//     let div2 = document.createElement('div')
+//     let p2 = document.createElement('p')
+//     p2.textContent ="Feet"
+//     let small2 = document.createElement('small');
+//     small2.textContent = Dragons.diameter.feet
+//     div1.append(p2,small2)
+
+//     section__information__3.append(h3,div1,div2)
+// }
+

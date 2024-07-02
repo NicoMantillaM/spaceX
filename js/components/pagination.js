@@ -76,8 +76,9 @@ import {
     informationIdDragon,
     informationTypeDragon,
     informationDescriptionDragons,
-    firstFlightDragon
-
+    firstFlightDragon,
+    // informationHeightDragon,
+    // informationDiameterDragon
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -87,7 +88,9 @@ import {
     tableCompanyColum1,
     tableCompanyColum2,
     tableCoresColum1,
-    tableCoresColum2
+    tableCoresColum2,
+    tableDragonColum1,
+    tableDragonColum2
 } from "./tables.js";
 import { 
     informRocketEngineThrustSeaLevel, 
@@ -545,6 +548,10 @@ const getDragonsId = async(e)=>{
     await informationDescriptionDragons(Dragons.description)
     await linksWikipediaDragon(Dragons.wikipedia)
     await firstFlightDragon(Dragons.first_flight)
+    await tableDragonColum1(Dragons)
+    await tableDragonColum2(Dragons)
+    // await informationHeightDragon(Dragons)
+    // await informationDiameterDragon(Dragons)
 }
 
 
