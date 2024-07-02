@@ -1,4 +1,5 @@
 
+
 // Tablas para rockets
 
 export const tableRocketColum1 = async (Rocket)=>{
@@ -270,29 +271,28 @@ export const tableCompanyColum2 = async (Company)=>{
     let div = document.createElement("div");
     div.classList.add("table__container__1");
     // 
-    let div1 = document.createElement("div");
-    let span1 = document.createElement("span");
-    span1.textContent = "Launch Sites"
-    let strong1 = document.createElement("strong");
-    strong1.textContent = `${Company.launch_sites}`
-    div1.append(span1, strong1)
+        let div1 = document.createElement("div");
+        let span1 = document.createElement("span");
+        span1.textContent = "Launch Sites"
+        let strong1 = document.createElement("strong");
+        strong1.textContent = `${Company.launch_sites}`
+        div1.append(span1, strong1)
 
-    // 
-    let div2 = document.createElement("div");
-    let span2 = document.createElement("span");
-    span2.textContent = "Test Sites"
-    let strong2 = document.createElement("strong");
-    strong2.textContent =  `${Company.test_sites}`
-    div2.append(span2, strong2)
+        // 
+        let div2 = document.createElement("div");
+        let span2 = document.createElement("span");
+        span2.textContent = "Test Sites"
+        let strong2 = document.createElement("strong");
+        strong2.textContent =  `${Company.test_sites}`
+        div2.append(span2, strong2)
 
-      // 
-    let div3 = document.createElement("div");
-    let span3 = document.createElement("span");
-    span3.textContent = "Vehicles"
-    let strong3 = document.createElement("strong");
-    strong3.textContent =  `${Company.vehicles}`
-    div3.append(span3, strong3)
-
+        // 
+        let div3 = document.createElement("div");
+        let span3 = document.createElement("span");
+        span3.textContent = "Vehicles"
+        let strong3 = document.createElement("strong");
+        strong3.textContent =  `${Company.vehicles}`
+        div3.append(span3, strong3)
 
     div.append( div1, div2, div3)
     information__table__2.append(div)

@@ -415,3 +415,67 @@ export const linksElonTwitterCompany = async(elon_twitter) => {
     let information__2 = document.querySelector("#information__2");
     information__2.append(...conterDiv)
 }
+
+// infomacion d cores
+
+
+export const informationLastUpdateCores = async(last_update)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Last update"
+    let small = document.createElement('small');
+    small.textContent = last_update
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+export const informationStatusCores = async(status)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Status Core"
+    let small = document.createElement('small');
+    small.textContent = status
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+export const informationIdCores = async(id)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Id Core"
+    let small = document.createElement('small');
+    small.textContent = id
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}

@@ -13,9 +13,16 @@ import {
 } from "../modules/company.js";
 
 import { 
+    getAllCores, 
+    getAllCoresId
+} from "../modules/cores.js";
+
+
+import { 
     nameRockets,
     nameCapsules,
-    nameCompany
+    nameCompany,
+    nameCores
 } from "./title.js";
 import { 
     informationRockets,
@@ -39,7 +46,10 @@ import {
     linksWebsiteCompany,
     linksFlickrCompany,
     linksTwitterCompany,
-    linksElonTwitterCompany
+    linksElonTwitterCompany,
+    informationLastUpdateCores,
+    informationStatusCores,
+    informationIdCores,
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -56,7 +66,8 @@ import {
 import { 
     imageRockets,
     imageCapsules,
-    imageCompany
+    imageCompany,
+    imageCores
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -71,6 +82,11 @@ import {
     launchesInformationDateLocalCapsules,
     launchesInformationDateUnixCapsules,
     launchesInformationReadCapsules,
+    launchesInformationCores,
+    launchesInformationNameCores,
+    launchesInformationDateCores,
+    launchesInformationDateLocalCores,
+    launchesInformationDateUnixCores
 } from "../components/progressBar.js";
 
 // LOAD
@@ -326,3 +342,70 @@ export const paginationCompany = async()=>{
     await imageCompany()
 }
 
+// CORES
+
+const getCoresId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationCores(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+
+    let Cores = await getAllCoresId(e.target.id);
+    await clear();
+
+    await nameCores(Cores.serial)
+    await informationLastUpdateCores(Cores.last_update)
+    await informationStatusCores(Cores.status)
+    await informationIdCores(Cores.id)
+    await imageCores()
+
+    await launchesInformationCores()
+    await launchesInformationNameCores()
+    await launchesInformationDateCores()
+    await launchesInformationDateLocalCores()
+    await launchesInformationDateUnixCores()
+
+}
+
+
+export const paginationCores = async(page=1, limit=4)=>{  
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllCores(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getCoresId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getCoresId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getCoresId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+    return div;
+}
