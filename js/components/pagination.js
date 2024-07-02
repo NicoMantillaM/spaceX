@@ -35,13 +35,19 @@ import {
     summaryCompany,
     employeesCompany,
     headquartersCityCompany,
-    headquarterStateCompany
+    headquarterStateCompany,
+    linksWebsiteCompany,
+    linksFlickrCompany,
+    linksTwitterCompany,
+    linksElonTwitterCompany
 } from "./information.js";
 import { 
     tableRocketColum1, 
     tableRocketColum2,
     tableCapsuleColum1,
-    tableCapsuleColum2
+    tableCapsuleColum2,
+    tableCompanyColum1,
+    tableCompanyColum2
 } from "./tables.js";
 import { 
     informRocketEngineThrustSeaLevel, 
@@ -307,6 +313,13 @@ export const paginationCompany = async()=>{
     await summaryCompany(Company.summary)
     await employeesCompany(Company.employees)
     await headquartersCityCompany(Company.headquarters.city)
-    await headquarterStateCompany(Company.headquarters.state)
+    await headquarterStateCompany(Company.headquarters.state) 
+    await linksWebsiteCompany(Company.links.website)
+    await linksFlickrCompany(Company.links.flickr)
+    await linksTwitterCompany(Company.links.twitter)
+    await linksElonTwitterCompany(Company.links.elon_twitter)
+
+    await tableCompanyColum1(Company)
+    await tableCompanyColum2(Company)
 }
 

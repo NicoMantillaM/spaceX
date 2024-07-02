@@ -331,3 +331,87 @@ export const headquarterStateCompany = async(state)=>{
     let description__item = document.querySelector("#description__item")
     description__item.append(div)
 }
+
+
+export const linksWebsiteCompany = async(website) => {
+    let divInformationContainer = document.createElement("div");
+    divInformationContainer.classList.add("information__container");
+
+    let divFirst = document.createElement("div");
+    let h3 = document.createElement("h3");
+    h3.textContent = `Space X links:`;
+
+    let divLast = document.createElement("div");
+    let a = document.createElement("a");
+    a.href = website;
+    a.target = "_blank";
+    a.classList.add("btn");
+    a.textContent = "Website";
+
+    divFirst.append(h3);
+    divLast.append(a);
+    divInformationContainer.append(divFirst, divLast)
+
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(divInformationContainer);
+}
+
+export const linksFlickrCompany = async(flickr) => {
+    let conterDiv = [];
+    let divInformationContainer = document.createElement("div");
+    divInformationContainer.classList.add("information__container");
+
+    let divLast = document.createElement("div");
+    let a = document.createElement("a");
+    a.href = flickr;
+    a.target = "_blank";
+    a.classList.add("btn");
+    a.textContent = "Flickr";
+
+    divLast.append(a);
+    divInformationContainer.append(divLast);
+    conterDiv.push(divInformationContainer);
+
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv);
+}
+
+export const linksTwitterCompany = async(twitter) => {
+    let conterDiv = [];
+    let divInformationContainer = document.createElement("div");
+    divInformationContainer.classList.add("information__container");
+
+    let divLast = document.createElement("div");
+    let a = document.createElement("a");
+    a.href = twitter;
+    a.target = "_blank";
+    a.classList.add("btn");
+    a.textContent = "Twitter";
+
+    divLast.append(a);
+    divInformationContainer.append(divLast);
+    conterDiv.push(divInformationContainer);
+
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv);
+}
+
+export const linksElonTwitterCompany = async(elon_twitter) => {
+    let conterDiv = [];
+    let divInformationContainer = document.createElement("div");
+    divInformationContainer.classList.add("information__container")
+
+    let divLast = document.createElement("div");
+    let a = document.createElement("a");
+    a.href = elon_twitter;
+    a.target = "_blank";
+    a.classList.add("btn");
+    a.textContent = "Elon twitter";
+
+    divLast.append(a)
+    divInformationContainer.append(divLast)
+    conterDiv.push(divInformationContainer)
+
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+}
