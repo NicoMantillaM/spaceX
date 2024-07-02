@@ -272,6 +272,7 @@ body {
     /* background: orange; */
     grid-area: colum__2;
     display: flex;
+    overflow-x: auto;
     align-items: center;
     width: 300px;
     height: 20vh;

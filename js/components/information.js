@@ -651,7 +651,108 @@ export const launchesInformationArticleCrew = async() => {
     divInformationContainer.append(divLast)
     conterDiv.push(divInformationContainer)
     });
-
+    
     let section__information__3 = document.querySelector("#section__information__3");
     section__information__3.append(...conterDiv)
+}
+
+
+
+// infomacion d Dragons
+
+export const informationTypeDragon = async(type)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Type"
+    let small = document.createElement('small');
+    small.textContent = type
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+export const informationIdDragon= async(id)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Id Dragon"
+    let small = document.createElement('small');
+    small.textContent = id
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+
+export const informationDescriptionDragons = async(description)=>{
+    let section__information__2 = document.querySelector("#section__information__2");
+    section__information__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Description Dragon"
+    let small = document.createElement('small');
+    small.textContent = description
+    section__information__2.append(h3, small)
+}
+
+export const linksWikipediaDragon = async(wikipedia)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Read more"
+    
+    let a = document.createElement('a');
+    a.setAttribute("href", wikipedia)
+    a.setAttribute("target", "_blank");
+    a.textContent = "Wikipedia"
+    divLast.append(h3, a);
+    div.append(divFirst, divLast);
+    let description__item = document.querySelector("#description__item")
+    description__item.append(div)
+}
+
+
+export const firstFlightDragon = async (first_flight)=>{
+    let divFlight = document.createElement('div')
+    divFlight.classList.add('description__container')
+    let divLeft = document.createElement('div')
+    let img = document.createElement('img')
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img)
+
+    let divRight = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "First flight"
+    let small = document.createElement('small');
+    small.textContent = first_flight
+    divRight.append(h3, small);
+
+    divFlight.append(divLeft, divRight);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divFlight)
 }

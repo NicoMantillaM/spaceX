@@ -24,13 +24,20 @@ import {
     getAllCoresId
 } from "../modules/cores.js";
 
+import { 
+    getAllDragons, 
+    getAllDragonsId
+} from "../modules/dragons.js";
+
+
 
 import { 
     nameRockets,
     nameCapsules,
     nameCompany,
     nameCores,
-    nameCrew
+    nameCrew,
+    nameDragons
 } from "./title.js";
 import { 
     informationRockets,
@@ -64,7 +71,13 @@ import {
     linksWikipediaCrew,
     launchesInformationReadCrew,
     launchesInformationWebcastCrew,
-    launchesInformationArticleCrew
+    launchesInformationArticleCrew,
+    linksWikipediaDragon,
+    informationIdDragon,
+    informationTypeDragon,
+    informationDescriptionDragons,
+    firstFlightDragon
+
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -85,7 +98,8 @@ import {
     imageCapsules,
     imageCompany,
     imageCores,
-    imageCrew
+    imageCrew,
+    imageDragons
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -215,7 +229,7 @@ const getRocketsId = async(e)=>{
     let Rocket = await getAllRocketsId(e.target.id);
     await clear();
     
-    await informationRockets(Rocket.country, Rocket.description)
+    await informationRockets(Rocket.country)
     await nameRockets(Rocket.name)
     await informationLaunchCostRocket(Rocket.cost_per_launch)
     await firstFlight(Rocket.first_flight)
@@ -498,6 +512,69 @@ export const paginationCrew = async(page=1, limit=4)=>{
     end.innerHTML = "&raquo;";
     end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
     end.addEventListener("click", getCrewId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+    return div;
+}
+
+// DRAGONS
+
+const getDragonsId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationDragons(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+
+    let Dragons = await getAllDragonsId(e.target.id);
+    await clear();
+
+    await nameDragons(Dragons.name) 
+    await imageDragons(Dragons.flickr_images)
+    await informationTypeDragon(Dragons.type)
+    await informationIdDragon(Dragons.id)
+    await informationDescriptionDragons(Dragons.description)
+    await linksWikipediaDragon(Dragons.wikipedia)
+    await firstFlightDragon(Dragons.first_flight)
+}
+
+
+export const paginationDragons = async(page=1, limit=4)=>{  
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllDragons(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getDragonsId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getDragonsId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getDragonsId)
     div.appendChild(end);
     console.log(div);
     let [back, a1,a2,a3,a4, next] = div.children
