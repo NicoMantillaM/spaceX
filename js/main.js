@@ -36,13 +36,13 @@ capsules.addEventListener("click", async(e)=>{
     paginacion.append(await paginationCapsules())
 } )
 
-let company = document.querySelector("#company")
-company.addEventListener("click", async(e)=>{
-    await footerSelect(e, company)
+let company = document.querySelector("#company");
+company.addEventListener("click", async (e) => {
+    await footerSelect(e, company);
     let paginacion = document.querySelector("#paginacion");
-    paginacion.innerHTML = ""
-    paginacion.append(await paginationCompany())
-} )
+    paginacion.innerHTML = ""; 
+    await paginationCompany();
+})
 
 let cores = document.querySelector("#cores")
 cores.addEventListener("click", async(e)=>{

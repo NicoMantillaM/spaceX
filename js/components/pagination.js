@@ -106,8 +106,6 @@ import {
     launchesInformationNameCrew,
     launchesInformationDateLocalCrew,
     launchesInformationDateUnixCrew,
-    launchesInformationReadCrew,
-    informationReadMoreCrew
 } from "../components/progressBar.js";
 
 // LOAD
@@ -464,8 +462,7 @@ const getCrewId = async(e)=>{
     await launchesInformationNameCrew()
     await launchesInformationDateLocalCrew()
     await launchesInformationDateUnixCrew()
-    await launchesInformationReadCrew()
-    await informationReadMoreCrew()
+
 }
 
 
