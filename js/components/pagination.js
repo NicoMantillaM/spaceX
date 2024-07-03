@@ -44,6 +44,11 @@ import {
     getAllLaunchesId
 } from "../modules/launches.js";
 
+import { 
+    getAllShips, 
+    getAllShipsId
+} from "../modules/ships.js";
+
 
 import { 
     nameRockets,
@@ -54,7 +59,8 @@ import {
     nameDragons,
     nameHistorys,
     nameLandpads,
-    nameLaunches
+    nameLaunches,
+    nameShips
 } from "./title.js";
 import { 
     informationRockets,
@@ -118,7 +124,13 @@ import {
     detailsLaunches,
     InformationWebcastLaunches,
     InformationArticleLaunches,
-    InformationWikipediaLaunches
+    InformationWikipediaLaunches,
+    informationIdShips,
+    typeShips,
+    legacyIdShips,
+    homePortShips,
+    activeShips,
+    linkShips
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -130,7 +142,9 @@ import {
     tableCoresColum1,
     tableCoresColum2,
     tableDragonColum1,
-    tableDragonColum2
+    tableDragonColum2,
+    tableShipsColum1,
+    tableShipsColum2
 } from "./tables.js";
 import { 
     informRocketEngineThrustSeaLevel, 
@@ -144,7 +158,8 @@ import {
     imageCrew,
     imageDragons,
     imageLandpads,
-    imageLaunches
+    imageLaunches,
+    imageShips
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -853,6 +868,75 @@ export const paginationLaunches = async(page=1, limit=4)=>{
     end.innerHTML = "&raquo;";
     end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
     end.addEventListener("click", getLaunchesId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+    return div;
+}
+
+// Ships
+
+const getShipsId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationShips(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+
+    let Ships = await getAllShipsId(e.target.id);
+    await clear();
+
+    await nameShips(Ships.name) 
+    await imageShips(Ships.image)
+    await informationIdShips(Ships.id)
+
+    await typeShips(Ships.type) 
+    await legacyIdShips(Ships.legacy_id)
+    await homePortShips(Ships.home_port)
+    await activeShips(Ships.active) 
+    await linkShips(Ships.link)
+
+    await tableShipsColum1(Ships) 
+    await tableShipsColum2(Ships)
+    await imageShips(Ships.image)    
+}
+
+
+export const paginationShips = async(page=1, limit=4)=>{  
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllShips(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getShipsId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getShipsId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getShipsId)
     div.appendChild(end);
     console.log(div);
     let [back, a1,a2,a3,a4, next] = div.children

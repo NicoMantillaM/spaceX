@@ -137,3 +137,17 @@ export const imageLaunches = async(large) => {
     div.append(img)
     section__image.append(div)
 }
+// imagenes para Ships
+
+export const imageShips = async(image) => {
+    let section__image = document.querySelector("#section__image")
+
+    let div = document.createElement("div");
+    div.classList.add("carousel__item")
+    let img = document.createElement("img");
+    img.setAttribute("src", image)
+    img.setAttribute("referrerpolicy", "no-referrer")
+    div.append(img)
+    section__image.append(div)
+}
+

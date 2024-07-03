@@ -1246,3 +1246,98 @@ export const InformationWikipediaLaunches = async(wikipedia) => {
     let information__2 = document.querySelector("#information__2");
     information__2.append(...conterDiv)
 }
+
+
+//Info d Ships
+
+export const informationIdShips = async(id)=>{
+    let section__information__3 = document.querySelector("#section__information__3");
+    section__information__3.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "ID Ships"
+    let small = document.createElement('small');
+    small.textContent = id
+    section__information__3.append(h3, small)
+}
+
+export const typeShips = async(type)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Type ships"
+    let small = document.createElement('small');
+    small.textContent = type
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+
+export const legacyIdShips = async(legacy_id)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Legacy id "
+    let small = document.createElement('small');
+    small.textContent = legacy_id
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+
+export const homePortShips = async(home_port)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Home Port "
+    let small = document.createElement('small');
+    small.textContent = home_port
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+
+export const activeShips = async(active)=>{
+    let information__2 = document.querySelector("#information__2");
+    information__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Active Ships"
+    let small = document.createElement('small');
+    small.textContent = active
+    information__2.append(h3, small)
+}
+export const linkShips = async(link)=>{
+    let section__information__2 = document.querySelector("#section__information__2");
+    section__information__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Link Ships"
+    let small = document.createElement('small');
+    small.textContent = link
+    section__information__2.append(h3, small)
+}
