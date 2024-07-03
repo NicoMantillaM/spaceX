@@ -151,3 +151,19 @@ export const imageShips = async(image) => {
     section__image.append(div)
 }
 
+// imagenes para Launchpads 
+
+export const imageLaunchpads  = async(large) => {
+    let section__image = document.querySelector("#section__image")
+    let divs = [];
+    large.forEach(val => {
+        let div = document.createElement("div");
+        div.classList.add("carousel__item")
+        let img = document.createElement("img");
+        img.setAttribute("src", val)
+        img.setAttribute("referrerpolicy", "no-referrer")
+        div.append(img)
+        divs.push(div);
+    });
+    section__image.append(...divs)
+}

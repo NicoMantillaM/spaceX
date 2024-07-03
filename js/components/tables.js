@@ -631,3 +631,67 @@ export const tableShipsColum2 = async (Ships)=>{
     div.append( div1, div2, div3)
     information__table__2.append(div)
 }
+
+
+// Tablas para Launchpads
+
+export const tableLaunchpadsColum1 = async (Launchpads)=>{
+
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Information"
+    let hr = document.createElement("hr");
+    information__table__1.append(h3, hr)
+
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+    // 
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "Latitude"
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${(Launchpads.latitude)}`
+    div1.append(span1, strong1)
+
+    // 
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "Longitude"
+    let strong2 = document.createElement("strong");
+    strong2.textContent = `${Launchpads.longitude}`
+    div2.append(span2, strong2)
+
+    div.append( div1, div2, )
+    information__table__1.append(div)
+}
+
+export const tableLaunchpadsColum2 = async (Launchpads)=>{
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Launchpads information"
+    let hr = document.createElement("hr");
+    information__table__2.append(h3, hr)
+
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+    // 
+        let div1 = document.createElement("div");
+        let span1 = document.createElement("span");
+        span1.textContent = "Launch Attempts"
+        let strong1 = document.createElement("strong");
+        strong1.textContent = `${Launchpads.launch_attempts}`
+        div1.append(span1, strong1)
+
+        // 
+        let div2 = document.createElement("div");
+        let span2 = document.createElement("span");
+        span2.textContent = "Launch Successes"
+        let strong2 = document.createElement("strong");
+        strong2.textContent =  `${Launchpads.launch_successes}`
+        div2.append(span2, strong2)
+
+    div.append( div1, div2)
+    information__table__2.append(div)
+}
