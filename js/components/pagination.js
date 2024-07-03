@@ -39,6 +39,11 @@ import {
     getAllLandpadsId
 } from "../modules/landpads.js";
 
+import { 
+    getAllLaunches, 
+    getAllLaunchesId
+} from "../modules/launches.js";
+
 
 import { 
     nameRockets,
@@ -48,7 +53,8 @@ import {
     nameCrew,
     nameDragons,
     nameHistorys,
-    nameLandpads
+    nameLandpads,
+    nameLaunches
 } from "./title.js";
 import { 
     informationRockets,
@@ -102,7 +108,17 @@ import {
     informationIdLandpads,
     linksWikipediaLandpad,
     detailsLandpad,
-    // informationDiameterDragon
+    informationIdLaunches,
+    dateUtcLaunches,
+    dateUnixLaunches,
+    dateLocalLaunches,
+    dateFireUtclLaunches,
+    dateFireUnixlLaunches,
+    flightNumberlLaunches,
+    detailsLaunches,
+    InformationWebcastLaunches,
+    InformationArticleLaunches,
+    InformationWikipediaLaunches
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -127,7 +143,8 @@ import {
     imageCores,
     imageCrew,
     imageDragons,
-    imageLandpads
+    imageLandpads,
+    imageLaunches
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -763,6 +780,79 @@ export const paginationLandpads = async(page=1, limit=4)=>{
     end.innerHTML = "&raquo;";
     end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
     end.addEventListener("click", getLandpadsId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+    return div;
+}
+
+
+// Launches
+
+const getLaunchesId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationLaunches(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+
+    let Launches = await getAllLaunchesId(e.target.id);
+    await clear();
+
+    await nameLaunches(Launches.name) 
+    await imageLaunches(Launches.links.patch.large)
+    await informationIdLaunches(Launches.id)
+
+    await dateUtcLaunches(Launches.date_utc) 
+    await dateUnixLaunches(Launches.date_unix)
+    await dateLocalLaunches(Launches.date_local)
+    await dateFireUtclLaunches(Launches.static_fire_date_utc) 
+    await dateFireUnixlLaunches(Launches.static_fire_date_unix)
+    await flightNumberlLaunches(Launches.flight_number)
+
+    await detailsLaunches(Launches.details) 
+    await InformationWebcastLaunches(Launches.links.webcast)
+    await InformationArticleLaunches(Launches.links.article)
+    await InformationWikipediaLaunches(Launches.links.wikipedia)
+    
+}
+
+
+export const paginationLaunches = async(page=1, limit=4)=>{  
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllLaunches(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getLaunchesId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getLaunchesId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getLaunchesId)
     div.appendChild(end);
     console.log(div);
     let [back, a1,a2,a3,a4, next] = div.children

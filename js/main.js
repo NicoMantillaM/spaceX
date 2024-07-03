@@ -7,7 +7,8 @@ import {
     paginationCrew,
     paginationDragons,
     paginationHistory,
-    paginationLandpads
+    paginationLandpads,
+    paginationLaunches
 } from "./components/pagination.js";
 
 
@@ -87,6 +88,13 @@ landpads.addEventListener("click", async(e)=>{
     paginacion.append(await paginationLandpads())
 } )
 
+let launches = document.querySelector("#launches")
+launches.addEventListener("click", async(e)=>{
+    await footerSelect(e, launches)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationLaunches())
+} )
 
 
 rocket.click();

@@ -1017,3 +1017,232 @@ export const detailsLandpad = async(details)=>{
     small.textContent = details
     section__information__2.append(h3, small)
 }
+
+//Info d Launches
+
+export const informationIdLaunches = async(id)=>{
+    let section__information__3 = document.querySelector("#section__information__3");
+    section__information__3.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "ID Launches"
+    let small = document.createElement('small');
+    small.textContent = id
+    section__information__3.append(h3, small)
+}
+
+
+export const dateUtcLaunches = async (date_utc)=>{
+    let divFlight = document.createElement('div')
+    divFlight.classList.add('description__container')
+    let divLeft = document.createElement('div')
+    let img = document.createElement('img')
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img)
+
+    let divRight = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Event date utc"
+    let small = document.createElement('small');
+    small.textContent = date_utc
+    divRight.append(h3, small);
+
+    divFlight.append(divLeft, divRight);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divFlight)
+}
+
+export const dateUnixLaunches = async (date_unix)=>{
+    let divFlight = document.createElement('div')
+    divFlight.classList.add('description__container')
+    let divLeft = document.createElement('div')
+    let img = document.createElement('img')
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img)
+
+    let divRight = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Event date unix"
+    let small = document.createElement('small');
+    small.textContent = date_unix
+    divRight.append(h3, small);
+
+    divFlight.append(divLeft, divRight);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divFlight)
+}
+export const dateLocalLaunches = async (date_local)=>{
+    let divFlight = document.createElement('div')
+    divFlight.classList.add('description__container')
+    let divLeft = document.createElement('div')
+    let img = document.createElement('img')
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img)
+
+    let divRight = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Event date unix"
+    let small = document.createElement('small');
+    small.textContent = date_local
+    divRight.append(h3, small);
+
+    divFlight.append(divLeft, divRight);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divFlight)
+}
+
+export const dateFireUtclLaunches = async (static_fire_date_utc)=>{
+    let divFlight = document.createElement('div')
+    divFlight.classList.add('description__container')
+    let divLeft = document.createElement('div')
+    let img = document.createElement('img')
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img)
+
+    let divRight = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Event date unix"
+    let small = document.createElement('small');
+    small.textContent = static_fire_date_utc
+    divRight.append(h3, small);
+
+    divFlight.append(divLeft, divRight);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divFlight)
+}
+
+export const dateFireUnixlLaunches = async (static_fire_date_unix)=>{
+    let divFlight = document.createElement('div')
+    divFlight.classList.add('description__container')
+    let divLeft = document.createElement('div')
+    let img = document.createElement('img')
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img)
+
+    let divRight = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Event date unix"
+    let small = document.createElement('small');
+    small.textContent = static_fire_date_unix
+    divRight.append(h3, small);
+
+    divFlight.append(divLeft, divRight);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divFlight)
+}
+
+export const flightNumberlLaunches = async (flight_number)=>{
+    let divFlight = document.createElement('div')
+    divFlight.classList.add('description__container')
+    let divLeft = document.createElement('div')
+    let img = document.createElement('img')
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img)
+    
+    let divRight = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Event date unix"
+    let small = document.createElement('small');
+    small.textContent = flight_number
+    divRight.append(h3, small);
+
+    divFlight.append(divLeft, divRight);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divFlight)
+}
+
+export const detailsLaunches = async(details)=>{
+    let section__information__2 = document.querySelector("#section__information__2");
+    section__information__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Details Launches"
+    let small = document.createElement('small');
+    small.textContent = details
+    section__information__2.append(h3, small)
+}
+export const InformationWebcastLaunches = async(webcast) => {
+ 
+    let divInformationContainer = document.createElement("div");
+    divInformationContainer.classList.add("information__container")
+    let conterDiv = [];
+    let divFirst = document.createElement("div");
+    let h3 = document.createElement("h3");
+    h3.textContent = `Webcast`;
+
+    let divLast = document.createElement("div");
+    let a = document.createElement("a");
+    a.href = webcast;
+    a.target = "_blank";
+    a.classList.add("btn");
+    a.textContent = "Webcast";
+
+    divFirst.append(h3)
+    divLast.append(a)
+    divInformationContainer.append(divFirst)
+    divInformationContainer.append(divLast)
+    conterDiv.push(divInformationContainer)
+
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+}
+export const InformationArticleLaunches = async(article) => {
+ 
+    let divInformationContainer = document.createElement("div");
+    divInformationContainer.classList.add("information__container")
+    let conterDiv = [];
+    let divFirst = document.createElement("div");
+    let h3 = document.createElement("h3");
+    h3.textContent = `Article`;
+
+    let divLast = document.createElement("div");
+    let a = document.createElement("a");
+    a.href = article;
+    a.target = "_blank";
+    a.classList.add("btn");
+    a.textContent = "article";
+
+    divFirst.append(h3)
+    divLast.append(a)
+    divInformationContainer.append(divFirst)
+    divInformationContainer.append(divLast)
+    conterDiv.push(divInformationContainer)
+
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+}
+export const InformationWikipediaLaunches = async(wikipedia) => {
+ 
+    let divInformationContainer = document.createElement("div");
+    divInformationContainer.classList.add("information__container")
+    let conterDiv = [];
+    let divFirst = document.createElement("div");
+    let h3 = document.createElement("h3");
+    h3.textContent = `Wikipedia`;
+
+    let divLast = document.createElement("div");
+    let a = document.createElement("a");
+    a.href = wikipedia;
+    a.target = "_blank";
+    a.classList.add("btn");
+    a.textContent = "wikipedia";
+
+    divFirst.append(h3)
+    divLast.append(a)
+    divInformationContainer.append(divFirst)
+    divInformationContainer.append(divLast)
+    conterDiv.push(divInformationContainer)
+
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+}
