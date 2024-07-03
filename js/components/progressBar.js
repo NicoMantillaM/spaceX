@@ -887,3 +887,6 @@ export const trunkCargo = async(solarArray,unpressurizedCargo ) => {
     div.append(divFirst, divLast);
     document.querySelector("#information__2").append(div);
 };
+
+
+

@@ -34,6 +34,11 @@ import {
     getAllHistoryId
 } from "../modules/history.js";
 
+import { 
+    getAllLandpads, 
+    getAllLandpadsId
+} from "../modules/landpads.js";
+
 
 import { 
     nameRockets,
@@ -42,7 +47,8 @@ import {
     nameCores,
     nameCrew,
     nameDragons,
-    nameHistorys
+    nameHistorys,
+    nameLandpads
 } from "./title.js";
 import { 
     informationRockets,
@@ -87,7 +93,15 @@ import {
     dateUtcHistory,
     dateUnixHistory,
     detailsHistory,
-    linksHistory
+    linksHistory,
+    fullNameLandpads,
+    statusLandpads,
+    typeLandpads,
+    localityLandpads,
+    regionLandpads,
+    informationIdLandpads,
+    linksWikipediaLandpad,
+    detailsLandpad
     // informationDiameterDragon
 } from "./information.js";
 import { 
@@ -146,7 +160,7 @@ import {
     returnPayloadVol,
     pressurizedDragonsVol,
     trunkVol,
-    trunkCargo
+    trunkCargo,
 } from "../components/progressBar.js";
 
 // LOAD
@@ -676,6 +690,76 @@ export const paginationHistory = async(page=1, limit=4)=>{
     end.innerHTML = "&raquo;";
     end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
     end.addEventListener("click", getHistoryId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+    return div;
+}
+
+
+// Landpads
+
+const getLandpadsId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationLandpads(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+
+    let Landpads = await getAllLandpadsId(e.target.id);
+    await clear();
+
+    await nameLandpads(Landpads.name) 
+    await informationIdLandpads(Landpads.id)
+    await fullNameLandpads(Landpads.full_name)
+    await statusLandpads(Landpads.status)
+    await typeLandpads(Landpads.type)
+
+    await localityLandpads(Landpads.locality)
+    await regionLandpads(Landpads.region)
+    await statusLandpads(Landpads.status)
+    await typeLandpads(Landpads.type)
+    await linksWikipediaLandpad(Landpads.links)
+    await detailsLandpad(Landpads.details)
+
+}
+
+
+export const paginationLandpads = async(page=1, limit=4)=>{  
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllLandpads(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getLandpadsId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getLandpadsId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getLandpadsId)
     div.appendChild(end);
     console.log(div);
     let [back, a1,a2,a3,a4, next] = div.children
