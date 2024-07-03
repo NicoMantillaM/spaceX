@@ -888,5 +888,24 @@ export const trunkCargo = async(solarArray,unpressurizedCargo ) => {
     document.querySelector("#information__2").append(div);
 };
 
+export const landpadsLaunch = async(launches ) => {
+    console.log(launches);
+    let information__2 = document.querySelector("#information__2")
+    let divs = [];
 
 
+    let divLaunch = document.createElement('div');
+    let p = document.createElement('p');
+    p.textContent = "Launches:";
+    divLaunch.append(p);
+    
+    launches.forEach(val => {
+        console.log(val);
+        let divLast = document.createElement('div');
+        let span = document.createElement('span');
+        span.textContent =`Link: ${val}`;
+        divLast.append(span);
+        divs.push(divLaunch, divLast )
+    });
+    information__2.append(...divs)
+};

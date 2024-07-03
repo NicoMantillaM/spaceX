@@ -15,7 +15,7 @@ export const imageRockets = async(flickr_images)=>{
         let div = document.createElement("div");
         div.classList.add("carousel__item")
         let img = document.createElement("img");
-        img
+        img.setAttribute("src", val)
         img.setAttribute("referrerpolicy", "no-referrer")
         div.append(img)
         divs.push(div);
@@ -109,10 +109,10 @@ export const imageDragons = async(flickr_images)=>{
 
 // imagenes para landpads
 
-export const imageLandpads = async(flickr_images)=>{
+export const imageLandpads = async(large)=>{
     let section__image = document.querySelector("#section__image")
     let divs = [];
-    flickr_images.forEach(val => {
+    large.forEach(val => {
         let div = document.createElement("div");
         div.classList.add("carousel__item")
         let img = document.createElement("img");

@@ -101,7 +101,7 @@ import {
     regionLandpads,
     informationIdLandpads,
     linksWikipediaLandpad,
-    detailsLandpad
+    detailsLandpad,
     // informationDiameterDragon
 } from "./information.js";
 import { 
@@ -126,7 +126,8 @@ import {
     imageCompany,
     imageCores,
     imageCrew,
-    imageDragons
+    imageDragons,
+    imageLandpads
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -161,6 +162,7 @@ import {
     pressurizedDragonsVol,
     trunkVol,
     trunkCargo,
+    landpadsLaunch
 } from "../components/progressBar.js";
 
 // LOAD
@@ -729,7 +731,8 @@ const getLandpadsId = async(e)=>{
     await typeLandpads(Landpads.type)
     await linksWikipediaLandpad(Landpads.links)
     await detailsLandpad(Landpads.details)
-
+    await imageLandpads(Landpads.images.large)
+    await landpadsLaunch(Landpads.launches)
 }
 
 
