@@ -783,26 +783,92 @@ export const informationHeightDragon = async(Dragons)=>{
     section__information__3.append( h3,div1, h3D, div3 )
 }
 
-// export const informationDiameterDragon = async(Dragons)=>{
-//     let section__information__3 = document.querySelector("#section__information__3");
-//     section__information__3.innerHTML = "";
-//     let h3 = document.createElement("h3");
-//     h3.textContent = "Diameter"
+// infomacion d history
 
-//     let div1 = document.createElement('div')
-//     let p = document.createElement('p')
-//     p.textContent =" Meters"
-//     let small = document.createElement('small');
-//     small.textContent = Dragons.diameter.meters
-//     div1.append(p,small)
+export const informationIdHistory = async(id)=>{
+    let section__information__3 = document.querySelector("#section__information__3");
+    section__information__3.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "ID history"
+    let small = document.createElement('small');
+    small.textContent = id
+    section__information__3.append(h3, small)
+}
 
-//     let div2 = document.createElement('div')
-//     let p2 = document.createElement('p')
-//     p2.textContent ="Feet"
-//     let small2 = document.createElement('small');
-//     small2.textContent = Dragons.diameter.feet
-//     div1.append(p2,small2)
 
-//     section__information__3.append(h3,div1,div2)
-// }
+export const dateUtcHistory = async (event_date_utc)=>{
+    let divFlight = document.createElement('div')
+    divFlight.classList.add('description__container')
+    let divLeft = document.createElement('div')
+    let img = document.createElement('img')
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img)
 
+    let divRight = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Event date utc"
+    let small = document.createElement('small');
+    small.textContent = event_date_utc
+    divRight.append(h3, small);
+
+    divFlight.append(divLeft, divRight);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divFlight)
+}
+
+export const dateUnixHistory = async (event_date_unix)=>{
+    let divFlight = document.createElement('div')
+    divFlight.classList.add('description__container')
+    let divLeft = document.createElement('div')
+    let img = document.createElement('img')
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img)
+
+    let divRight = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Event date unix"
+    let small = document.createElement('small');
+    small.textContent = event_date_unix
+    divRight.append(h3, small);
+
+    divFlight.append(divLeft, divRight);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divFlight)
+}
+
+export const detailsHistory = async(details)=>{
+    let section__information__2 = document.querySelector("#section__information__2");
+    section__information__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Details history"
+    let small = document.createElement('small');
+    small.textContent = details
+    section__information__2.append(h3, small)
+}
+
+export const linksHistory = async(links)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Read more"
+    
+    let a = document.createElement('a');
+    a.setAttribute("href", links.article)
+    a.setAttribute("target", "_blank");
+    a.textContent = "Article"
+    divLast.append(h3, a);
+    div.append(divFirst, divLast);
+    let description__item = document.querySelector("#description__item")
+    description__item.append(div)
+}

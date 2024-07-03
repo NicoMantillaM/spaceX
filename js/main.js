@@ -5,7 +5,8 @@ import {
     paginationCompany,
     paginationCores,
     paginationCrew,
-    paginationDragons
+    paginationDragons,
+    paginationHistory
 } from "./components/pagination.js";
 
 
@@ -67,6 +68,14 @@ dragons.addEventListener("click", async(e)=>{
     let paginacion = document.querySelector("#paginacion");
     paginacion.innerHTML = ""
     paginacion.append(await paginationDragons())
+} )
+
+let history = document.querySelector("#history")
+history.addEventListener("click", async(e)=>{
+    await footerSelect(e, history)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationHistory())
 } )
 
 
