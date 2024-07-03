@@ -757,40 +757,31 @@ export const firstFlightDragon = async (first_flight)=>{
     description__item.append(divFlight)
 }
 
-// export const informationHeightDragon = async(Dragons)=>{
-//     let section__information__3 = document.querySelector("#section__information__3");
-//     section__information__3.innerHTML = "";
-//     let h3 = document.createElement("h3");
-//     h3.textContent = "Height"
+export const informationHeightDragon = async(Dragons)=>{
+    let section__information__3 = document.querySelector("#section__information__3");
+    section__information__3.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Height"
 
-//     let div1 = document.createElement('div')
-//     let p = document.createElement('p')
-//     p.textContent =" Meters"
-//     let small = document.createElement('small');
-//     small.textContent = Dragons.height_w_trunk.meters
-//     div1.append(p,small)
+    let div1 = document.createElement('div')
+    let p = document.createElement('p')
+    p.textContent =" Meters y Feet"
+    let small = document.createElement('small');
+    small.textContent =`${Dragons.height_w_trunk.meters} kg, ${Dragons.height_w_trunk.feet} lb`;
+    div1.append(p,small)
 
-//     let p2 = document.createElement('p')
-//     p2.textContent ="Feet"
-//     let small2 = document.createElement('small');
-//     small2.textContent = Dragons.height_w_trunk.feet
-//     div1.append(p2,small2)
+    let h3D = document.createElement("h3");
+    h3D.textContent = "Diameter"
 
-//     let p3 = document.createElement('p')
-//     p3.textContent =" Meters"
-//     let small3 = document.createElement('small');
-//     small3.textContent = Dragons.diameter.meters
-//     div1.append(p,small)
+    let div3 = document.createElement('div')
+    let p3 = document.createElement('p')
+    p3.textContent ="  Meters y Feet"
+    let small3 = document.createElement('small');
+    small3.textContent = `${Dragons.diameter.meters} kg, ${Dragons.diameter.feet} lb`;
+    div3.append(p3,small3)
 
-//     let p5 = document.createElement('p')
-//     p5.textContent ="Feet"
-//     let small5 = document.createElement('small');
-//     small5.textContent = Dragons.diameter.feet
-//     div1.append(p5,small5)
-
-
-//     section__information__3.append(h3,div1)
-// }
+    section__information__3.append( h3,div1, h3D, div3 )
+}
 
 // export const informationDiameterDragon = async(Dragons)=>{
 //     let section__information__3 = document.querySelector("#section__information__3");

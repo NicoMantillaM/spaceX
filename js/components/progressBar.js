@@ -692,32 +692,198 @@ export const launchesInformationDateUnixCrew = async() => {
     let information__2 = document.querySelector("#information__2");
     information__2.append(...conterDiv)
 }
-// export const launchesInformationReadCrew = async() => {
-//     let launches = await getAllCrewLaunches();
-//     let conterDiv = [];
+export const materialHeatShield = async(material) => {
+    let div = document.createElement('div');
+    div.classList.add('information__container');
+    
+    let divFirst = document.createElement('div');
+    let p = document.createElement('p');
+    p.textContent = "Material:";
+    divFirst.append(p);
+    
+    let divLast = document.createElement('div');
+    let span = document.createElement('span');
+    span.textContent = material;
+    divLast.append(span);
+    
+    div.append(divFirst, divLast);
+    document.querySelector("#information__2").append(div);
+};
+export const sizeHeatShield  = async(size) => {
+    let div = document.createElement('div');
+    div.classList.add('information__container');
+    
+    let divFirst = document.createElement('div');
+    let p = document.createElement('p');
+    p.textContent = "Size:";
+    divFirst.append(p);
+    
+    let divLast = document.createElement('div');
+    let span = document.createElement('span');
+    span.textContent = size;
+    divLast.append(span);
+    
+    div.append(divFirst, divLast);
+    document.querySelector("#information__2").append(div);
+};
+export const tempHeatShield  = async(temp) => {
+    let div = document.createElement('div');
+    div.classList.add('information__container');
+    
+    let divFirst = document.createElement('div');
+    let p = document.createElement('p');
+    p.textContent = "Temp:";
+    divFirst.append(p);
+    
+    let divLast = document.createElement('div');
+    let span = document.createElement('span');
+    span.textContent = temp;
+    divLast.append(span);
+    
+    div.append(divFirst, divLast);
+    document.querySelector("#information__2").append(div);
+};
 
-//     launches.forEach(launch => {
-//     let divInformationContainer = document.createElement("div");
-//     divInformationContainer.classList.add("information__container")
+export const devPartner   = async(partner) => {
+    let div = document.createElement('div');
+    div.classList.add('information__container');
+    
+    let divFirst = document.createElement('div');
+    let p = document.createElement('p');
+    p.textContent = "Socio:";
+    divFirst.append(p);
+    
+    let divLast = document.createElement('div');
+    let span = document.createElement('span');
+    span.textContent = partner;
+    divLast.append(span);
+    
+    div.append(divFirst, divLast);
+    document.querySelector("#information__2").append(div);
+};
 
-//     let divFirst = document.createElement("div");
-//     let p = document.createElement("p");
-//     p.textContent = `Read More about this crew:`;
+export const launchPayloadMass  = async(massKg,massLb ) => {
+    let div = document.createElement('div');
+    div.classList.add('information__container');
+    
+    let divFirst = document.createElement('div');
+    let p = document.createElement('p');
+    p.textContent = "Masa:";
+    divFirst.append(p);
+    
+    let divLast = document.createElement('div');
+    let span = document.createElement('span');
+    span.textContent = `${massKg} kg, ${massLb} lb`;
+    divLast.append(span);
+    
+    div.append(divFirst, divLast);
+    document.querySelector("#information__2").append(div);
+};
 
-//     let divLast = document.createElement("div");
-//     let a = document.createElement("a");
-//     a.href = launch.links.wikipedia;
-//     a.target = "_blank";
-//     a.classList.add("btn");
-//     a.textContent = "Wikipedia";
+export const launchPayloadVol   = async(cubicMeters,cubicFeet ) => {
+    let div = document.createElement('div');
+    div.classList.add('information__container');
+    
+    let divFirst = document.createElement('div');
+    let p = document.createElement('p');
+    p.textContent = "Volumen:";
+    divFirst.append(p);
+    
+    let divLast = document.createElement('div');
+    let span = document.createElement('span');
+    span.textContent =`${cubicMeters} m³, ${cubicFeet} ft³`;
+    divLast.append(span);
+    
+    div.append(divFirst, divLast);
+    document.querySelector("#information__2").append(div);
+};
 
-//     divFirst.append(p)
-//     divLast.append(a)
-//     divInformationContainer.append(divFirst)
-//     divInformationContainer.append(divLast)
-//     conterDiv.push(divInformationContainer)
-//     });
+export const returnPayloadMass = async(massKg,massLb ) => {
+    let div = document.createElement('div');
+    div.classList.add('information__container');
+    
+    let divFirst = document.createElement('div');
+    let p = document.createElement('p');
+    p.textContent = "Masa-Retorno:";
+    divFirst.append(p);
+    
+    let divLast = document.createElement('div');
+    let span = document.createElement('span');
+    span.textContent =`${massKg} kg, ${massLb} lb`;
+    divLast.append(span);
+    
+    div.append(divFirst, divLast);
+    document.querySelector("#information__2").append(div);
+};
 
-//     let information__2 = document.querySelector("#information__2");
-//     information__2.append(...conterDiv)
-// }
+export const returnPayloadVol  = async(cubicMeters,cubicFeet ) => {
+    let div = document.createElement('div');
+    div.classList.add('information__container');
+    
+    let divFirst = document.createElement('div');
+    let p = document.createElement('p');
+    p.textContent = "Volumen-Retorno:";
+    divFirst.append(p);
+    
+    let divLast = document.createElement('div');
+    let span = document.createElement('span');
+    span.textContent =`${cubicMeters} m³, ${cubicFeet} ft³`;
+    divLast.append(span);
+    
+    div.append(divFirst, divLast);
+    document.querySelector("#information__2").append(div);
+};
+
+export const pressurizedDragonsVol = async(cubicMeters,cubicFeet ) => {
+    let div = document.createElement('div');
+    div.classList.add('information__container');
+    
+    let divFirst = document.createElement('div');
+    let p = document.createElement('p');
+    p.textContent = "Volumen-Cápsula :";
+    divFirst.append(p);
+    
+    let divLast = document.createElement('div');
+    let span = document.createElement('span');
+    span.textContent =`${cubicMeters} m³, ${cubicFeet} ft³`;
+    divLast.append(span);
+    
+    div.append(divFirst, divLast);
+    document.querySelector("#information__2").append(div);
+};
+
+export const trunkVol = async(cubicMeters,cubicFeet ) => {
+    let div = document.createElement('div');
+    div.classList.add('information__container');
+    
+    let divFirst = document.createElement('div');
+    let p = document.createElement('p');
+    p.textContent = "Volumen-Tronco  :";
+    divFirst.append(p);
+    
+    let divLast = document.createElement('div');
+    let span = document.createElement('span');
+    span.textContent = `${cubicMeters} m³, ${cubicFeet} ft³`;
+    divLast.append(span);
+    
+    div.append(divFirst, divLast);
+    document.querySelector("#information__2").append(div);
+};
+
+export const trunkCargo = async(solarArray,unpressurizedCargo ) => {
+    let div = document.createElement('div');
+    div.classList.add('information__container');
+    
+    let divFirst = document.createElement('div');
+    let p = document.createElement('p');
+    p.textContent = "Paneles Solares y Carga:";
+    divFirst.append(p);
+    
+    let divLast = document.createElement('div');
+    let span = document.createElement('span');
+    span.textContent =`Paneles Solares: ${solarArray}, Carga no Presurizada: ${unpressurizedCargo}`;
+    divLast.append(span);
+    
+    div.append(divFirst, divLast);
+    document.querySelector("#information__2").append(div);
+};

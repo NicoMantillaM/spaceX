@@ -15,7 +15,7 @@ export const imageRockets = async(flickr_images)=>{
         let div = document.createElement("div");
         div.classList.add("carousel__item")
         let img = document.createElement("img");
-        img.setAttribute("src", val)
+        img
         img.setAttribute("referrerpolicy", "no-referrer")
         div.append(img)
         divs.push(div);

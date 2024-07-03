@@ -77,7 +77,7 @@ import {
     informationTypeDragon,
     informationDescriptionDragons,
     firstFlightDragon,
-    // informationHeightDragon,
+    informationHeightDragon,
     // informationDiameterDragon
 } from "./information.js";
 import { 
@@ -126,6 +126,17 @@ import {
     launchesInformationNameCrew,
     launchesInformationDateLocalCrew,
     launchesInformationDateUnixCrew,
+    materialHeatShield,
+    sizeHeatShield,
+    tempHeatShield,
+    devPartner,
+    launchPayloadMass,
+    launchPayloadVol,
+    returnPayloadMass,
+    returnPayloadVol,
+    pressurizedDragonsVol,
+    trunkVol,
+    trunkCargo
 } from "../components/progressBar.js";
 
 // LOAD
@@ -550,8 +561,18 @@ const getDragonsId = async(e)=>{
     await firstFlightDragon(Dragons.first_flight)
     await tableDragonColum1(Dragons)
     await tableDragonColum2(Dragons)
-    // await informationHeightDragon(Dragons)
-    // await informationDiameterDragon(Dragons)
+    await informationHeightDragon(Dragons)
+    await materialHeatShield(Dragons.heat_shield.material);
+    await sizeHeatShield(Dragons.heat_shield.size_meters);
+    await tempHeatShield(Dragons.heat_shield.temp_degrees);
+    await devPartner(Dragons.heat_shield.dev_partner);
+    await launchPayloadMass(Dragons.launch_payload_mass.kg, Dragons.launch_payload_mass.lb);
+    await launchPayloadVol(Dragons.launch_payload_vol.cubic_meters, Dragons.launch_payload_vol.cubic_feet);
+    await returnPayloadMass(Dragons.return_payload_mass.kg, Dragons.return_payload_mass.lb);
+    await returnPayloadVol(Dragons.return_payload_vol.cubic_meters, Dragons.return_payload_vol.cubic_feet);
+    await pressurizedDragonsVol(Dragons.pressurized_Dragons.payload_volume.cubic_meters, Dragons.pressurized_Dragons.payload_volume.cubic_feet);
+    await trunkVol(Dragons.trunk.trunk_volume.cubic_meters, Dragons.trunk.trunk_volume.cubic_feet);
+    await trunkCargo(Dragons.trunk.cargo.solar_array, Dragons.trunk.cargo.unpressurized_cargo);
 }
 
 
