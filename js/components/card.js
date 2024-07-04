@@ -34,7 +34,7 @@ export const imageCapsules = async() => {
     let div = document.createElement("div");
     div.classList.add("carousel__item")
     let img = document.createElement("img");
-    img.setAttribute("src", launch.links.patch.small)
+    img.setAttribute("src", "storage/img/icons/giphy.webp")
     img.setAttribute("referrerpolicy", "no-referrer")
     div.append(img)
     divs.push(div);
