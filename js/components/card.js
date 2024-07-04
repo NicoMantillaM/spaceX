@@ -67,7 +67,7 @@ export const imageCores = async() => {
     let div = document.createElement("div");
     div.classList.add("carousel__item")
     let img = document.createElement("img");
-    img.setAttribute("src", launch.links.patch.small)
+    img.setAttribute("src", "storage/img/icons/core.webp")
     img.setAttribute("referrerpolicy", "no-referrer")
     div.append(img)
     divs.push(div);
@@ -164,6 +164,42 @@ export const imageLaunchpads  = async(large) => {
         img.setAttribute("referrerpolicy", "no-referrer")
         div.append(img)
         divs.push(div);
+    });
+    section__image.append(...divs)
+}
+// imagenes para history 
+
+export const imagehistory = async() => {
+    let launches = await getAllCoresLaunches();
+    let section__image = document.querySelector("#section__image")
+    let divs = [];
+
+    launches.forEach(launch => {
+    let div = document.createElement("div");
+    div.classList.add("carousel__item")
+    let img = document.createElement("img");
+    img.setAttribute("src", "storage/img/icons/history.webp")
+    img.setAttribute("referrerpolicy", "no-referrer")
+    div.append(img)
+    divs.push(div);
+    });
+    section__image.append(...divs)
+}
+// imagenes para history 
+
+export const imagepayload = async() => {
+    let launches = await getAllCoresLaunches();
+    let section__image = document.querySelector("#section__image")
+    let divs = [];
+
+    launches.forEach(launch => {
+    let div = document.createElement("div");
+    div.classList.add("carousel__item")
+    let img = document.createElement("img");
+    img.setAttribute("src", "storage/img/icons/payload.webp")
+    img.setAttribute("referrerpolicy", "no-referrer")
+    div.append(img)
+    divs.push(div);
     });
     section__image.append(...divs)
 }

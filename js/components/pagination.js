@@ -230,7 +230,9 @@ import {
     imageLaunches,
     imageShips,
     imageLaunchpads,
-    imageRoadster
+    imageRoadster,
+    imagehistory,
+    imagepayload
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -764,6 +766,7 @@ const getHistoryId = async(e)=>{
     await dateUnixHistory(History.event_date_unix)
     await detailsHistory(History.details)
     await linksHistory(History.links)
+    await imagehistory()
 
 }
 
@@ -1118,6 +1121,7 @@ const getPayloadsId = async(e)=>{
     await referencesSystemPayloads(Payloads.reference_system)
     await noradidsPayloads(Payloads.norad_ids) 
     await informationReused(Payloads.reused)
+    await imagepayload()
 
     await tablePayloadsColum1(Payloads) 
     await tablePayloadsColum2(Payloads) 
