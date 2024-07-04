@@ -203,6 +203,24 @@ export const imagepayload = async() => {
     });
     section__image.append(...divs)
 }
+// imagenes para history 
+
+export const imagestarli = async() => {
+    let launches = await getAllCoresLaunches();
+    let section__image = document.querySelector("#section__image")
+    let divs = [];
+
+    launches.forEach(launch => {
+    let div = document.createElement("div");
+    div.classList.add("carousel__item")
+    let img = document.createElement("img");
+    img.setAttribute("src", "storage/img/icons/starli.webp")
+    img.setAttribute("referrerpolicy", "no-referrer")
+    div.append(img)
+    divs.push(div);
+    });
+    section__image.append(...divs)
+}
 
 // imagenes para Roadster
 

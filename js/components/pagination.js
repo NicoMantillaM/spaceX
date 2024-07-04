@@ -232,7 +232,8 @@ import {
     imageLaunchpads,
     imageRoadster,
     imagehistory,
-    imagepayload
+    imagepayload,
+    imagestarli
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -1221,6 +1222,7 @@ const getStarlinkId = async(e)=>{
     await tableStarlinkColum1(Starlink.spaceTrack) 
     await tableStarlinkColum2(Starlink) 
     await handleId(Starlink.id);
+    await imagestarli();
 }
 
 export const paginationStarlink = async(page=1, limit=4)=>{  
