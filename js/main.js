@@ -141,4 +141,4 @@ starlink.addEventListener("click", async(e)=>{
     paginacion.append(await paginationStarlink())
 } )
 
-starlink.click();
+rocket.click();
