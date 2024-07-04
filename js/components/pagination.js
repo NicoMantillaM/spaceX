@@ -214,7 +214,8 @@ import {
     imageLandpads,
     imageLaunches,
     imageShips,
-    imageLaunchpads
+    imageLaunchpads,
+    imageRoadster
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -1162,7 +1163,7 @@ export const paginationRoadster = async()=>{
     await speed_kphRoadster(Roadster.speed_kph);
     await speed_mphRoadster(Roadster.speed_mph);
     
-    // await flickr_imagesRoadster(Roadster.flickr_images);
+    await imageRoadster(Roadster.flickr_images);
     await wikipediaRoadster(Roadster.wikipedia);
     await videoRoadster(Roadster.video);
     await detailsRoadster(Roadster.details);
