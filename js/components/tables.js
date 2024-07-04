@@ -789,3 +789,121 @@ export const tablePayloadsColum2 = async (Payloads)=>{
     div.append( div1, div2, div3, div4)
     information__table__2.append(div)
 }
+
+// Tablas para Roadster
+
+export const tableRoadsterColum1 = async (Roadster)=>{
+
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Information"
+    let hr = document.createElement("hr");
+    information__table__1.append(h3, hr)
+
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+    // 
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "Mass kg"
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${(Roadster.launch_mass_kg)}`
+    div1.append(span1, strong1)
+
+    // 
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "Mass lbs"
+    let strong2 = document.createElement("strong");
+    strong2.textContent = `${Roadster.launch_mass_lbs}`
+    div2.append(span2, strong2)
+
+    // 
+    let div3 = document.createElement("div");
+    let span3 = document.createElement("span");
+    span3.textContent = "Semi major axis"
+    let strong3 = document.createElement("strong");
+    strong3.textContent =  `${Roadster.semi_major_axis_au}`
+    div3.append(span3, strong3)
+    // 
+    let div4 = document.createElement("div");
+    let span4 = document.createElement("span");
+    span4.textContent = "Eccentricity"
+    let strong4 = document.createElement("strong");
+    strong4.textContent =  `${Roadster.eccentricity}`
+    div4.append(span4, strong4)
+
+     // 
+    let div5 = document.createElement("div");
+    let span5 = document.createElement("span");
+    span5.textContent = "Inclination"
+    let strong5 = document.createElement("strong");
+    strong5.textContent =  `${Roadster.inclination}`
+    div5.append(span5, strong5)
+
+    // 
+    let div6 = document.createElement("div");
+    let span6 = document.createElement("span");
+    span6.textContent = "longitude"
+    let strong6 = document.createElement("strong");
+    strong6.textContent =  `${Roadster.longitude}`
+    div6.append(span6, strong6)
+
+    // 
+    let div7 = document.createElement("div");
+    let span7 = document.createElement("span");
+    span7.textContent = "period_days"
+    let strong7 = document.createElement("strong");
+    strong7.textContent =  `${Roadster.period_days}`
+    div7.append(span7, strong7)
+
+    div.append( div1, div2, div3, div4, div5, div6, div7 )
+    information__table__1.append(div)
+}
+
+export const tableRoadsterColum2 = async (Roadster)=>{
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Roadster information"
+    let hr = document.createElement("hr");
+    information__table__2.append(h3, hr)
+
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+    // 
+        let div1 = document.createElement("div");
+        let span1 = document.createElement("span");
+        span1.textContent = "earth_distance_km"
+        let strong1 = document.createElement("strong");
+        strong1.textContent = `${Roadster.earth_distance_km}`
+        div1.append(span1, strong1)
+
+        // 
+        let div2 = document.createElement("div");
+        let span2 = document.createElement("span");
+        span2.textContent = "earth_distance_mi"
+        let strong2 = document.createElement("strong");
+        strong2.textContent =  `${Roadster.earth_distance_mi}`
+        div2.append(span2, strong2)
+
+         // 
+        let div3 = document.createElement("div");
+        let span3 = document.createElement("span");
+        span3.textContent = "mars_distance_km"
+        let strong3 = document.createElement("strong");
+        strong3.textContent =  `${Roadster.mars_distance_km}`
+        div3.append(span3, strong3)
+
+        // 
+        let div4 = document.createElement("div");
+        let span4 = document.createElement("span");
+        span4.textContent = "mars_distance_mi"
+        let strong4 = document.createElement("strong");
+        strong4.textContent =  `${Roadster.mars_distance_mi}`
+        div4.append(span4, strong4)
+
+    div.append( div1, div2, div3, div4)
+    information__table__2.append(div)
+}

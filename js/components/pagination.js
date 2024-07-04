@@ -60,6 +60,11 @@ import {
 } from "../modules/payloads.js";
 
 import { 
+    getAllRoadster, 
+    getAllRoadsterId
+} from "../modules/roadster.js";
+
+import { 
     nameRockets,
     nameCapsules,
     nameCompany,
@@ -71,7 +76,8 @@ import {
     nameLaunches,
     nameShips,
     nameLaunchpads,
-    namePayloads
+    namePayloads,
+    nameRoadster
 } from "./title.js";
 import { 
     informationRockets,
@@ -158,7 +164,21 @@ import {
     manufacturersPayloads,
     noradidsPayloads,
     informationReused,
-    referencesSystemPayloads
+    referencesSystemPayloads,
+    launch_date_utcRoadster,
+    launch_date_unixRoadster,
+    norad_idRoadster, 
+    epoch_jdRoadster, 
+    orbitRoadster, 
+    apoapsis_auRoadster,
+    periapsis_auRoadster,
+    period_daysRoadster,
+    speed_kphRoadster, 
+    speed_mphRoadster,
+    wikipediaRoadster,
+    videoRoadster,
+    detailsRoadster,
+    informationIdRoadster,
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -176,7 +196,9 @@ import {
     tableLaunchpadsColum1,
     tableLaunchpadsColum2,
     tablePayloadsColum1,
-    tablePayloadsColum2
+    tablePayloadsColum2,
+    tableRoadsterColum1,
+    tableRoadsterColum2
 } from "./tables.js";
 import { 
     informRocketEngineThrustSeaLevel, 
@@ -1048,7 +1070,6 @@ export const paginationLaunchpads = async(page=1, limit=4)=>{
     return div;
 }
 
-
 // Payloads
 
 const getPayloadsId = async(e)=>{
@@ -1120,3 +1141,34 @@ export const paginationPayloads = async(page=1, limit=4)=>{
     a1.click();
     return div;
 }
+
+
+// Roadster
+
+export const paginationRoadster = async()=>{
+    let Roadster = await getAllRoadster();
+    await clear();
+
+    await nameRoadster(Roadster.name);
+    await launch_date_utcRoadster(Roadster.launch_date_utc);
+    await launch_date_unixRoadster(Roadster.launch_date_unix);
+    await norad_idRoadster(Roadster.norad_id);
+    await epoch_jdRoadster(Roadster.epoch_jd);
+    await orbitRoadster(Roadster.orbit_type);
+    await apoapsis_auRoadster(Roadster.apoapsis_au);
+    await periapsis_auRoadster(Roadster.periapsis_au);
+    
+    await period_daysRoadster(Roadster.period_days);
+    await speed_kphRoadster(Roadster.speed_kph);
+    await speed_mphRoadster(Roadster.speed_mph);
+    
+    // await flickr_imagesRoadster(Roadster.flickr_images);
+    await wikipediaRoadster(Roadster.wikipedia);
+    await videoRoadster(Roadster.video);
+    await detailsRoadster(Roadster.details);
+    await informationIdRoadster(Roadster.id);
+    
+    await tableRoadsterColum1(Roadster) 
+    await tableRoadsterColum2(Roadster) 
+}
+

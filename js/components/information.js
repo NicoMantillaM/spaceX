@@ -1676,3 +1676,237 @@ export const referencesSystemPayloads = async(reference_system)=>{
     let information__2 = document.querySelector("#information__2")
     information__2.append(divLast)
 }
+
+
+//informacion para Roadster
+
+export const informationIdRoadster = async(id)=>{
+    let section__information__3 = document.querySelector("#section__information__3");
+    section__information__3.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "ID Roadster"
+    let small = document.createElement('small');
+    small.textContent = id
+    section__information__3.append(h3, small)
+}
+
+export const launch_date_utcRoadster = async(launch_date_utc)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Launch date utc"
+    let small = document.createElement('small');
+    small.textContent = launch_date_utc
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+
+
+export const orbitRoadster = async(orbit_type)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Orbit type"
+    let small = document.createElement('small');
+    small.textContent = orbit_type
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+
+export const launch_date_unixRoadster = async(launch_date_unix)=>{
+    let section__information__2 = document.querySelector("#section__information__2");
+    section__information__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Launch date unix"
+    let small = document.createElement('small');
+    small.textContent = launch_date_unix
+
+    section__information__2.append(h3, small )
+}
+
+export const epoch_jdRoadster  = async(epoch_jd)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Epoch jd "
+    let small = document.createElement('small');
+    small.textContent = epoch_jd
+    divRigth.append(h3, small)
+    divLast.append(divLeft, divRigth);
+
+    let information__2 = document.querySelector("#information__2")
+    information__2.append(divLast)
+}
+
+export const apoapsis_auRoadster = async(apoapsis_au)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Apoapsis au "
+    let small = document.createElement('small');
+    small.textContent = apoapsis_au
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let information__2 = document.querySelector("#information__2")
+    information__2.append(divLast)
+}
+
+
+export const period_daysRoadster = async(period_days)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Period days "
+    let small = document.createElement('small');
+    small.textContent = period_days
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let information__2 = document.querySelector("#information__2")
+    information__2.append(divLast)
+}
+export const speed_kphRoadster = async(speed_kph)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Speed kph "
+    let small = document.createElement('small');
+    small.textContent = speed_kph
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let information__2 = document.querySelector("#information__2")
+    information__2.append(divLast)
+}
+
+
+export const periapsis_auRoadster = async(periapsis_au)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Periapsis au "
+    let small = document.createElement('small');
+    small.textContent = periapsis_au
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let information__2 = document.querySelector("#information__2")
+    information__2.append(divLast)
+}
+
+export const speed_mphRoadster = async(speed_mph)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Speed mph"
+    let small = document.createElement('small');
+    small.textContent = speed_mph
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let information__2 = document.querySelector("#information__2")
+    information__2.append(divLast)
+}
+
+export const detailsRoadster = async(details)=>{
+    let section__information__2 = document.querySelector("#section__information__2");
+    section__information__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Details Roadster"
+    let small = document.createElement('small');
+    small.textContent = details
+    section__information__2.append(h3, small)
+}
+
+export const videoRoadster = async(video)=>{
+    let section__information__2 = document.querySelector("#section__information__2");
+    section__information__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Video"
+    let small = document.createElement('small');
+    small.textContent = video
+    section__information__2.append(h3, small)
+}
+
+export const wikipediaRoadster = async(wikipedia)=>{
+    let section__information__3 = document.querySelector("#section__information__3");
+    section__information__3.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "wikipedia"
+    let small = document.createElement('small');
+    small.textContent = wikipedia
+    section__information__3.append(h3, small)
+}
+
+export const norad_idRoadster = async(norad_id)=>{
+    let section__information__2 = document.querySelector("#section__information__2");
+    section__information__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Norad id"
+    let small = document.createElement('small');
+    small.textContent = norad_id
+    section__information__2.append(h3, small)
+}
