@@ -157,7 +157,8 @@ import {
     nationalitiesPayloads,
     manufacturersPayloads,
     noradidsPayloads,
-    informationReused
+    informationReused,
+    referencesSystemPayloads
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -173,7 +174,9 @@ import {
     tableShipsColum1,
     tableShipsColum2,
     tableLaunchpadsColum1,
-    tableLaunchpadsColum2
+    tableLaunchpadsColum2,
+    tablePayloadsColum1,
+    tablePayloadsColum2
 } from "./tables.js";
 import { 
     informRocketEngineThrustSeaLevel, 
@@ -1071,15 +1074,16 @@ const getPayloadsId = async(e)=>{
 
     await orbitPayloads(Payloads.orbit)
     await customersPayloads(Payloads.customers)
-    await regimePayloads(Payloads.regime) 
+    await regimePayloads(Payloads) 
     await nationalitiesPayloads(Payloads.nationalities)
 
     await manufacturersPayloads(Payloads.manufacturers) 
+    await referencesSystemPayloads(Payloads.reference_system)
     await noradidsPayloads(Payloads.norad_ids) 
     await informationReused(Payloads.reused)
 
-    // await tablePayloadsColum1(Payloads) 
-    // await tablePayloadsColum2(Payloads) 
+    await tablePayloadsColum1(Payloads) 
+    await tablePayloadsColum2(Payloads) 
 }
 
 

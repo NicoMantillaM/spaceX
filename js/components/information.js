@@ -1549,14 +1549,19 @@ export const customersPayloads = async(customers)=>{
     description__item.append(divLast)
 }
 
-export const regimePayloads = async(regime)=>{
+export const regimePayloads = async(Payloads)=>{
     let section__information__2 = document.querySelector("#section__information__2");
     section__information__2.innerHTML = "";
     let h3 = document.createElement("h3");
     h3.textContent = "Regime"
     let small = document.createElement('small');
-    small.textContent = regime
-    section__information__2.append(h3, small)
+    small.textContent = `${(Payloads.regime)}`
+
+    let h31 = document.createElement("h3");
+    h31.textContent = "Epoch"
+    let small1 = document.createElement('small');
+    small1.textContent = `${(Payloads.epoch)}`
+    section__information__2.append(h3, small, h31, small1)
 }
 
 export const nationalitiesPayloads  = async(nationalities)=>{
@@ -1645,6 +1650,26 @@ export const informationReused = async(reused)=>{
     h3.textContent = "Reused "
     let small = document.createElement('small');
     small.textContent = reused
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let information__2 = document.querySelector("#information__2")
+    information__2.append(divLast)
+}
+export const referencesSystemPayloads = async(reference_system)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Reference system "
+    let small = document.createElement('small');
+    small.textContent = reference_system
     divRigth.append(h3, small);
     divLast.append(divLeft, divRigth);
 
