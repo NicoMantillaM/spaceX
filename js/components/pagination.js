@@ -65,6 +65,11 @@ import {
 } from "../modules/roadster.js";
 
 import { 
+    getAllStarlink, 
+    getAllStarlinkId
+} from "../modules/starlink.js";
+
+import { 
     nameRockets,
     nameCapsules,
     nameCompany,
@@ -77,7 +82,8 @@ import {
     nameShips,
     nameLaunchpads,
     namePayloads,
-    nameRoadster
+    nameRoadster,
+    nameStarlink
 } from "./title.js";
 import { 
     informationRockets,
@@ -179,6 +185,12 @@ import {
     videoRoadster,
     detailsRoadster,
     informationIdRoadster,
+    handleObjectId ,
+    handleElementSetNo ,
+    handleObjectType ,
+    handleCountryCode ,
+    handleId,
+    handleVersion,
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -198,7 +210,10 @@ import {
     tablePayloadsColum1,
     tablePayloadsColum2,
     tableRoadsterColum1,
-    tableRoadsterColum2
+    tableRoadsterColum2,
+    tableStarlinkColum1,
+    tableStarlinkColum2
+
 } from "./tables.js";
 import { 
     informRocketEngineThrustSeaLevel, 
@@ -1173,3 +1188,67 @@ export const paginationRoadster = async()=>{
     await tableRoadsterColum2(Roadster) 
 }
 
+// Starlink
+
+const getStarlinkId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationStarlink(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+
+    let Starlink = await getAllStarlinkId(e.target.id);
+    console.log(Starlink);
+    await clear();
+
+    await nameStarlink(Starlink.spaceTrack.OBJECT_NAME) 
+    await handleObjectId(Starlink.spaceTrack.OBJECT_ID);
+    await handleElementSetNo(Starlink.spaceTrack.ELEMENT_SET_NO);
+    await handleObjectType(Starlink.spaceTrack.OBJECT_TYPE);
+    await handleCountryCode(Starlink.spaceTrack.COUNTRY_CODE);
+    await handleVersion(Starlink.version);
+    await tableStarlinkColum1(Starlink.spaceTrack) 
+    await tableStarlinkColum2(Starlink) 
+    await handleId(Starlink.id);
+}
+
+export const paginationStarlink = async(page=1, limit=4)=>{  
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllStarlink(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getStarlinkId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getStarlinkId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getStarlinkId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+    return div;
+}

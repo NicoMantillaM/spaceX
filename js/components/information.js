@@ -1910,3 +1910,90 @@ export const norad_idRoadster = async(norad_id)=>{
     small.textContent = norad_id
     section__information__2.append(h3, small)
 }
+
+
+
+//informacion para Starlink
+
+export const handleObjectId = async(OBJECT_ID)=>{
+    let section__information__3 = document.querySelector("#section__information__3");
+    section__information__3.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "ID Starlink"
+    let small = document.createElement('small');
+    small.textContent = OBJECT_ID
+    section__information__3.append(h3, small)
+}
+
+export const handleElementSetNo = async(ELEMENT_SET_NO)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "ELEMENT SET NO"
+    let small = document.createElement('small');
+    small.textContent = ELEMENT_SET_NO
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+
+
+export const handleObjectType = async(OBJECT_TYPE)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "OBJECT TYPE"
+    let small = document.createElement('small');
+    small.textContent = OBJECT_TYPE
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+
+export const handleCountryCode = async(COUNTRY_CODE)=>{
+    let section__information__2 = document.querySelector("#section__information__2");
+    section__information__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Launch date unix"
+    let small = document.createElement('small');
+    small.textContent = COUNTRY_CODE
+
+    section__information__2.append(h3, small )
+}
+export const handleId = async(id)=>{
+    let section__information__3 = document.querySelector("#section__information__3");
+    section__information__3.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "ID Starlink"
+    let small = document.createElement('small');
+    small.textContent = id
+    section__information__3.append(h3, small)
+}
+export const handleVersion = async(version)=>{
+    let section__information__2 = document.querySelector("#section__information__2");
+    section__information__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Launch date unix"
+    let small = document.createElement('small');
+    small.textContent = version
+
+    section__information__2.append(h3, small )
+}

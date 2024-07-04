@@ -907,3 +907,90 @@ export const tableRoadsterColum2 = async (Roadster)=>{
     div.append( div1, div2, div3, div4)
     information__table__2.append(div)
 }
+
+// Tablas para Starlink
+
+export const tableStarlinkColum1 = async (spaceTrack)=>{
+
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Information"
+    let hr = document.createElement("hr");
+    information__table__1.append(h3, hr)
+
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+    // 
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "ECCENTRICITY"
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${(spaceTrack.ECCENTRICITY)}`
+    div1.append(span1, strong1)
+
+    // 
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "INCLINATION"
+    let strong2 = document.createElement("strong");
+    strong2.textContent = `${spaceTrack.INCLINATION}`
+    div2.append(span2, strong2)
+
+    // 
+    let div7 = document.createElement("div");
+    let span7 = document.createElement("span");
+    span7.textContent = "mean element theory"
+    let strong7 = document.createElement("strong");
+    strong7.textContent =  `${spaceTrack.MEAN_ELEMENT_THEORY}`
+    div7.append(span7, strong7)
+
+    div.append( div1, div2,div7 )
+    information__table__1.append(div)
+}
+
+export const tableStarlinkColum2 = async (Starlink)=>{
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Starlink information"
+    let hr = document.createElement("hr");
+    information__table__2.append(h3, hr)
+
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+    // 
+        let div1 = document.createElement("div");
+        let span1 = document.createElement("span");
+        span1.textContent = "longitude"
+        let strong1 = document.createElement("strong");
+        strong1.textContent = `${Starlink.longitude}`
+        div1.append(span1, strong1)
+
+        // 
+        let div2 = document.createElement("div");
+        let span2 = document.createElement("span");
+        span2.textContent = "latitude"
+        let strong2 = document.createElement("strong");
+        strong2.textContent =  `${Starlink.latitude}`
+        div2.append(span2, strong2)
+
+         // 
+        let div3 = document.createElement("div");
+        let span3 = document.createElement("span");
+        span3.textContent = "height_km"
+        let strong3 = document.createElement("strong");
+        strong3.textContent =  `${Starlink.height_km}`
+        div3.append(span3, strong3)
+
+        // 
+        let div4 = document.createElement("div");
+        let span4 = document.createElement("span");
+        span4.textContent = "velocity_kms"
+        let strong4 = document.createElement("strong");
+        strong4.textContent =  `${Starlink.velocity_kms}`
+        div4.append(span4, strong4)
+
+    div.append( div1, div2, div3, div4)
+    information__table__2.append(div)
+}
