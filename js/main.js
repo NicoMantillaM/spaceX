@@ -10,7 +10,8 @@ import {
     paginationLandpads,
     paginationLaunches,
     paginationShips,
-    paginationLaunchpads
+    paginationLaunchpads,
+    paginationPayloads
 } from "./components/pagination.js";
 
 
@@ -114,4 +115,12 @@ launchpads.addEventListener("click", async(e)=>{
     paginacion.append(await paginationLaunchpads())
 } )
 
-launchpads.click();
+let payloads = document.querySelector("#payloads")
+payloads.addEventListener("click", async(e)=>{
+    await footerSelect(e, payloads)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationPayloads())
+} )
+
+payloads.click();

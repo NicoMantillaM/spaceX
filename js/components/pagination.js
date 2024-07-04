@@ -54,6 +54,10 @@ import {
     getAllLaunchpadsId
 } from "../modules/launchpads.js";
 
+import { 
+    getAllPayloads, 
+    getAllPayloadsId
+} from "../modules/payloads.js";
 
 import { 
     nameRockets,
@@ -66,7 +70,8 @@ import {
     nameLandpads,
     nameLaunches,
     nameShips,
-    nameLaunchpads
+    nameLaunchpads,
+    namePayloads
 } from "./title.js";
 import { 
     informationRockets,
@@ -143,7 +148,16 @@ import {
     regionLaunchpads,
     detailsLaunchpads,
     informationStatusLaunchpads,
-    informationStatusTimezone
+    informationStatusTimezone,
+    informationIdPayloads,
+    typePayloads,
+    orbitPayloads,
+    customersPayloads,
+    regimePayloads,
+    nationalitiesPayloads,
+    manufacturersPayloads,
+    noradidsPayloads,
+    informationReused
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -1024,6 +1038,78 @@ export const paginationLaunchpads = async(page=1, limit=4)=>{
     end.innerHTML = "&raquo;";
     end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
     end.addEventListener("click", getLaunchpadsId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+    return div;
+}
+
+
+// Payloads
+
+const getPayloadsId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationPayloads(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+
+    let Payloads = await getAllPayloadsId(e.target.id);
+    await clear();
+
+    await namePayloads(Payloads.name) 
+    await informationIdPayloads(Payloads.id)
+    await typePayloads(Payloads.type)
+
+    await orbitPayloads(Payloads.orbit)
+    await customersPayloads(Payloads.customers)
+    await regimePayloads(Payloads.regime) 
+    await nationalitiesPayloads(Payloads.nationalities)
+
+    await manufacturersPayloads(Payloads.manufacturers) 
+    await noradidsPayloads(Payloads.norad_ids) 
+    await informationReused(Payloads.reused)
+
+    // await tablePayloadsColum1(Payloads) 
+    // await tablePayloadsColum2(Payloads) 
+}
+
+
+export const paginationPayloads = async(page=1, limit=4)=>{  
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllPayloads(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getPayloadsId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getPayloadsId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getPayloadsId)
     div.appendChild(end);
     console.log(div);
     let [back, a1,a2,a3,a4, next] = div.children

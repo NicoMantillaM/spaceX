@@ -1469,3 +1469,185 @@ export const informationStatusTimezone = async(timezone)=>{
     let information__2 = document.querySelector("#information__2")
     information__2.append(divLast)
 }
+
+//informacion para launchpad
+
+export const informationIdPayloads = async(id)=>{
+    let section__information__3 = document.querySelector("#section__information__3");
+    section__information__3.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "ID Payloads"
+    let small = document.createElement('small');
+    small.textContent = id
+    section__information__3.append(h3, small)
+}
+
+export const typePayloads = async(type)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Type"
+    let small = document.createElement('small');
+    small.textContent = type
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+
+
+export const orbitPayloads = async(orbit)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Orbit"
+    let small = document.createElement('small');
+    small.textContent = orbit
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+
+export const customersPayloads = async(customers)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Customers "
+    divRigth.append(h3)
+    customers.forEach(customer => {
+        let small = document.createElement('small');
+        small.textContent = customer
+        divRigth.append( small)
+    });
+    divLast.append(divLeft, divRigth);
+
+    let description__item = document.querySelector("#description__item")
+    description__item.append(divLast)
+}
+
+export const regimePayloads = async(regime)=>{
+    let section__information__2 = document.querySelector("#section__information__2");
+    section__information__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Regime"
+    let small = document.createElement('small');
+    small.textContent = regime
+    section__information__2.append(h3, small)
+}
+
+export const nationalitiesPayloads  = async(nationalities)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Nationalities "
+    divRigth.append(h3)
+    nationalities.forEach(nationaliti => {
+        let small = document.createElement('small');
+        small.textContent = nationaliti
+        divRigth.append( small)
+    });
+    divLast.append(divLeft, divRigth);
+
+    let information__2 = document.querySelector("#information__2")
+    information__2.append(divLast)
+}
+
+export const manufacturersPayloads = async(manufacturers)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Manufacturers "
+    divRigth.append(h3)
+    manufacturers.forEach(manufacturer => {
+        let small = document.createElement('small');
+        small.textContent = manufacturer
+        divRigth.append( small)
+    });
+    divLast.append(divLeft, divRigth);
+
+    let information__2 = document.querySelector("#information__2")
+    information__2.append(divLast)
+}
+
+export const noradidsPayloads = async(norad_ids)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Norad ids "
+    divRigth.append(h3)
+    norad_ids.forEach(noradid => {
+        let small = document.createElement('small');
+        small.textContent = noradid
+        divRigth.append( small)
+    });
+    divLast.append(divLeft, divRigth);
+
+    let information__2 = document.querySelector("#information__2")
+    information__2.append(divLast)
+}
+
+export const informationReused = async(reused)=>{
+    let divLast = document.createElement('div');
+    divLast.classList.add('description__container')
+    let divLeft = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/mario.gif")
+    img.setAttribute("width", "55px"); 
+    divLeft.append(img);
+    
+    let divRigth = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Reused "
+    let small = document.createElement('small');
+    small.textContent = reused
+    divRigth.append(h3, small);
+    divLast.append(divLeft, divRigth);
+
+    let information__2 = document.querySelector("#information__2")
+    information__2.append(divLast)
+}
